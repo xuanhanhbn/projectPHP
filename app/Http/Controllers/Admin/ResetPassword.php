@@ -14,7 +14,7 @@ class ResetPassword extends Controller
 
     public function index()
     {
-        return view('auth.reset-password');
+        return view('admin.auth.reset-password');
     }
 
     public function routeNotificationForMail() {

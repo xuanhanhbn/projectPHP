@@ -39,6 +39,18 @@ Route::prefix('admin')-> group(function () {
         '/reset-password',
         [App\Http\Controllers\Admin\ResetPassword::class, "index"]
     )->name("admin_reset-password");
+    Route::post(
+        '/reset-password',
+        [App\Http\Controllers\Admin\ResetPassword::class, "send"]
+    )->name("admin_reset-password.perform");
+    Route::get(
+        '/change-password',
+        [App\Http\Controllers\Admin\ResetPassword::class, "index"]
+    )->name("admin_change-password");
+    Route::post(
+        '/change-password',
+        [App\Http\Controllers\Admin\ResetPassword::class, "changePassword"]
+    )->name("admin_change-password.perform");
     Route::get(
         '/home',
         [App\Http\Controllers\Admin\HomeController::class, "index"]

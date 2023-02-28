@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
 <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
     <div class="container">
-        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{{ route('home') }}">
+        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{{ route('admin_home') }}">
             Argon Dashboard 2 Laravel
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -19,25 +19,25 @@
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                        href="{{ route('home') }}">
+                        href="{{ route('admin_home') }}">
                         <i class="fa fa-chart-pie opacity-6  me-1"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="{{ route('profile-static') }}">
+                    <a class="nav-link me-2" href="{{ route('admin_profile-static') }}">
                         <i class="fa fa-user opacity-6  me-1"></i>
                         Profile
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="{{ route('sign-up-static') }}">
+                    <a class="nav-link me-2" href="{{ route('admin_sign-up-static') }}">
                         <i class="fas fa-user-circle opacity-6  me-1"></i>
                         Sign Up
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="{{ route('sign-in-static') }}">
+                    <a class="nav-link me-2" href="{{ route('admin_sign-in-static') }}">
                         <i class="fas fa-key opacity-6  me-1"></i>
                         Sign In
                     </a>
