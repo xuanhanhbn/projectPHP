@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">
-                @include('layouts.navbars.guest.navbar')
+                @include('admin.layouts.navbars.guest.navbar')
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
                                     <p class="mb-0">Enter your email and please wait a few seconds</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="{{ route('reset.perform') }}">
+                                    <form role="form" method="POST" action="{{ route('admin_reset.perform') }}">
                                         @csrf
                                         @method('post')
                                         <div class="flex flex-col mb-3">

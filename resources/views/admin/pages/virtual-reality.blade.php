@@ -1,10 +1,10 @@
-@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100 virtual-reality'])
+@extends('admin.layouts.app', ['class' => 'g-sidenav-show bg-gray-100 virtual-reality'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Virtual Reality'])
+    @include('admin.layouts.navbars.auth.topnav', ['title' => 'Virtual Reality'])
     <div class="border-radius-xl mt-4 mx-4 position-relative"
         style="background-image: url('/img/vr-bg.jpg') ; background-size: cover;">
-        @include('layouts.navbars.auth.sidenav')
+        @include('admin.layouts.navbars.auth.sidenav')
         <main class="main-content mt-1 border-radius-lg">
             <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
                 <div class="container">
