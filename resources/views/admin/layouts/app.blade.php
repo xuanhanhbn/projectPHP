@@ -18,7 +18,7 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
+    <link id="pagestyle" href="/assets/css/argon-dashboard.css" rel="stylesheet" />
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -38,11 +38,11 @@
                     <span class="mask bg-primary opacity-6"></span>
                 </div>
             @endif
-            @include('layouts.navbars.auth.sidenav')
+            @include('admin.layouts.navbars.auth.sidenav')
                 <main class="main-content border-radius-lg">
                     @yield('content')
                 </main>
-            @include('components.fixed-plugin')
+            @include('admin.components.fixed-plugin')
         @endif
     @endauth
 

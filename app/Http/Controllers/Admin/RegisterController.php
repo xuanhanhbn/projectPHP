@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 // use App\Http\Requests\RegisterRequest;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 
 class RegisterController extends Controller
 {
-    public function create()
+    public function index()
     {
-        return view('auth.register');
+        return view('admin.auth.register');
     }
 
-    public function store()
+    public function register()
     {
         $attributes = request()->validate([
             'username' => 'required|max:255|min:2',
@@ -23,6 +24,6 @@ class RegisterController extends Controller
         $user = User::create($attributes);
         auth()->login($user);
 
-        return redirect('/dashboard');
+        return redirect(route("admin_home"));
     }
 }

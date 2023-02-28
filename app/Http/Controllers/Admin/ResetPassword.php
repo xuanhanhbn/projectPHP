@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use App\Models\User;
@@ -11,7 +12,7 @@ class ResetPassword extends Controller
 {
     use Notifiable;
 
-    public function show()
+    public function index()
     {
         return view('auth.reset-password');
     }

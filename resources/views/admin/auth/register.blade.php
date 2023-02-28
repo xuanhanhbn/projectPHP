@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-    @include('layouts.navbars.guest.navbar')
+    @include('admin.layouts.navbars.guest.navbar')
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
             style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('register.perform') }}">
+                            <form method="POST" action="{{ route('admin_register.perform') }}">
                                 @csrf
                                 <div class="flex flex-col mb-3">
                                     <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Name" value="{{ old('username') }}" >
@@ -107,7 +107,7 @@
                                 <div class="text-center">
                                     <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                                 </div>
-                                <p class="text-sm mt-3 mb-0">Already have an account? <a href="{{ route('login') }}"
+                                <p class="text-sm mt-3 mb-0">Already have an account? <a href="{{ route('admin_login') }}"
                                         class="text-dark font-weight-bolder">Sign in</a></p>
                             </form>
                         </div>
@@ -116,5 +116,5 @@
             </div>
         </div>
     </main>
-    @include('layouts.footers.guest.footer')
+    @include('admin.layouts.footers.guest.footer')
 @endsection

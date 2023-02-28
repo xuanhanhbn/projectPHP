@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,8 +15,8 @@ class PageController extends Controller
      */
     public function index(string $page)
     {
-        if (view()->exists("pages.{$page}")) {
-            return view("pages.{$page}");
+        if (view()->exists("admin.pages.{$page}")) {
+            return view("admin.pages.{$page}");
         }
 
         return abort(404);
@@ -23,26 +24,26 @@ class PageController extends Controller
 
     public function vr()
     {
-        return view("pages.virtual-reality");
+        return view("admin.pages.virtual-reality");
     }
 
     public function rtl()
     {
-        return view("pages.rtl");
+        return view("admin.pages.rtl");
     }
 
     public function profile()
     {
-        return view("pages.profile-static");
+        return view("admin.pages.profile-static");
     }
 
     public function signin()
     {
-        return view("pages.sign-in-static");
+        return view("admin.pages.sign-in-static");
     }
 
     public function signup()
     {
-        return view("pages.sign-up-static");
+        return view("admin.pages.sign-up-static");
     }
 }

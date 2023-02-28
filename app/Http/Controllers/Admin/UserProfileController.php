@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class UserProfileController extends Controller
 {
-    public function show()
+    public function index()
     {
-        return view('pages.user-profile');
+        return view('admin.pages.user-profile');
     }
 
     public function update(Request $request)
