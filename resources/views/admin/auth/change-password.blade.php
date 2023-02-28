@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">
-                @include('layouts.navbars.guest.navbar')
+                @include('admin.layouts.navbars.guest.navbar')
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
                                     <p class="mb-0">Set a new password for your email</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="{{ route('change.perform') }}">
+                                    <form role="form" method="POST" action="{{ route('admin_change-password.perform') }}">
                                         @csrf
 
                                         <div class="flex flex-col mb-3">
@@ -41,7 +41,7 @@
                                     </form>
                                 </div>
                                 <div id="alert">
-                                    @include('components.alert')
+                                    @include('admin.components.alert')
                                 </div>
                             </div>
                         </div>
