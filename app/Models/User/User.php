@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,16 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
-        'firstname',
-        'lastname',
+        'name',
         'email',
         'password',
-        'address',
-        'city',
-        'country',
-        'postal',
-        'about'
     ];
 
     /**
@@ -48,14 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Always encrypt the password when it is updated.
-     *
-     * @param $value
-    * @return string
-    */
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value);
+    public function Role(){
+        return $this-> hasOne(Role::class);
+    }
+    public function Cart(){
+        return $this->hasOne(UserCart::class);
+    }
+    public function Info(){
+        return $this->hasOne(UserInfo::class);
     }
 }
