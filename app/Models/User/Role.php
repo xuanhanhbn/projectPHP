@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserInfo extends Model
+class Role extends Model
 {
     use HasFactory;
 
-    protected $table = "userInfos";
+    protected $table = "roles";
     protected $fillable = [
-        "fullName",
-        "address",
-        "age"
+        "role",
+        "user_id"
     ];
+
     public function User(){
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 }

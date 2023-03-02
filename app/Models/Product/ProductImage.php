@@ -10,4 +10,12 @@ class ProductImage extends Model
     use HasFactory;
 
     protected $table = "productImages";
+
+    protected $fillable = [
+        "path"
+    ];
+
+    public function Product(){
+        return $this -> belongsTo(Product::class);
+    }
 }
