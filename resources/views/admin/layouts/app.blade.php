@@ -19,6 +19,7 @@
     <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="/assets/css/argon-dashboard.css" rel="stylesheet" />
+    @yield("custom_css")
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -65,6 +66,7 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/argon-dashboard.js"></script>
     @stack('js');
+    @yield("custom_js")
 </body>
 
 </html>
