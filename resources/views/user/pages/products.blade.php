@@ -30,9 +30,9 @@ https://templatemo.com/tm-571-hexashop
 
 -->
     </head>
-    
+
     <body>
-    
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -40,10 +40,10 @@ https://templatemo.com/tm-571-hexashop
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
-    
-    
+
+
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -80,7 +80,7 @@ https://templatemo.com/tm-571-hexashop
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="{{route("user_home")}}">Explore</a></li>
-                        </ul>        
+                        </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -122,6 +122,33 @@ https://templatemo.com/tm-571-hexashop
         </div>
         <div class="container">
             <div class="row">
+                @foreach($data as $item)
+                    <div class="col-lg-4">
+                        <div class="item">
+                            <div class="thumb">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img width="100%" src="{{$item->thumbnail}}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <h4>{{$item->title}}</h4>
+                                <span>{{$item->price}}</span>
+                                <ul class="stars">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
                 <div class="col-lg-4">
                     <div class="item">
                         <div class="thumb">
@@ -137,206 +164,6 @@ https://templatemo.com/tm-571-hexashop
                         <div class="down-content">
                             <h4>Classic Spring</h4>
                             <span>$120.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/men-02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Air Force 1 X</h4>
-                            <span>$90.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/men-03.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Love Nana ‘20</h4>
-                            <span>$150.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/women-01.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>New Green Jacket</h4>
-                            <span>$75.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/women-02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Classic Dress</h4>
-                            <span>$45.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/women-03.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Spring Collection</h4>
-                            <span>$130.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/kid-01.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>School Collection</h4>
-                            <span>$80.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/kid-02.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Summer Cap</h4>
-                            <span>$12.00</span>
-                            <ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="item">
-                        <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <img src="user/assets/images/kid-03.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <h4>Classic Kid</h4>
-                            <span>$30.00</span>
                             <ul class="stars">
                                 <li><i class="fa fa-star"></i></li>
                                 <li><i class="fa fa-star"></i></li>
@@ -372,7 +199,7 @@ https://templatemo.com/tm-571-hexashop
         </div>
     </section>
     <!-- ***** Products Area Ends ***** -->
-    
+
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
@@ -417,8 +244,8 @@ https://templatemo.com/tm-571-hexashop
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved. 
-                        
+                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
+
                         <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
 
                         <br>Distributed By: <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">ThemeWagon</a></p>
@@ -433,7 +260,7 @@ https://templatemo.com/tm-571-hexashop
             </div>
         </div>
     </footer>
-    
+
 
     <!-- jQuery -->
     <script src="user/assets/js/jquery-2.1.0.min.js"></script>
@@ -449,11 +276,11 @@ https://templatemo.com/tm-571-hexashop
     <script src="user/assets/js/scrollreveal.min.js"></script>
     <script src="user/assets/js/waypoints.min.js"></script>
     <script src="user/assets/js/jquery.counterup.min.js"></script>
-    <script src="user/assets/js/imgfix.min.js"></script> 
-    <script src="user/assets/js/slick.js"></script> 
-    <script src="user/assets/js/lightbox.js"></script> 
-    <script src="user/assets/js/isotope.js"></script> 
-    
+    <script src="user/assets/js/imgfix.min.js"></script>
+    <script src="user/assets/js/slick.js"></script>
+    <script src="user/assets/js/lightbox.js"></script>
+    <script src="user/assets/js/isotope.js"></script>
+
     <!-- Global Init -->
     <script src="user/assets/js/custom.js"></script>
 
@@ -469,7 +296,7 @@ https://templatemo.com/tm-571-hexashop
               $("."+selectedClass).fadeIn();
               $("#portfolio").fadeTo(50, 1);
             }, 500);
-                
+
             });
         });
 
