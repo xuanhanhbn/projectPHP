@@ -22,6 +22,8 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:5|max:255',
             'verifypassword' => 'required_with:password|same:password|min:5|max:255',
+            'lastname' => 'required|min:5|max:255',
+            'firstname' => 'required|min:5|max:255',
             'terms' => 'required'
         ]);
         $user = User::create([
