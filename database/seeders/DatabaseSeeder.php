@@ -28,5 +28,8 @@ class DatabaseSeeder extends Seeder
             "user_id"=>$admin->id,
             "role"=>"ADMIN"
         ]);
+        
+        //\App\Models\Category\Category::factory(10)->create();
+        \App\Models\Product\Product::factory(50)->create();
     }
 }

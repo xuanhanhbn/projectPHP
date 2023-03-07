@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Product;
 
+use App\Models\Category\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +20,8 @@ class Product extends Model
         "sold",
         "rating",
         "comment",
-        "thumbnail"
+        "thumbnail",
+        "category_id"
     ];
 
     public function ProductImages(){
@@ -33,6 +35,19 @@ class Product extends Model
         return $this -> belongsTo(Category::class);
     }
 
-    
+    public function scopeSearch($query,$search){
+        if($search && $search != ""){
+            return $query->where("title","like","%$search%")
+                ->orWhere("description","like","%$search%");
+        }
+        return $query;
+    }
+
+    public function scopeCategoryFilter($query,$category_id){
+        if($category_id && $category_id != 0){
+            return $query->where("category_id",$category_id);
+        }
+        return $query;
+    }
 
 }
