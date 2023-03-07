@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Password;
+use App\Http\Middleware;
 
 class LoginController extends Controller
 {
@@ -18,14 +19,24 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'identifier' => ['required'],
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (
+            Auth::attempt(['email' => $request->identifier, 'password' => $request->password])
+            || Auth::attempt(['phone' => $request->identifier, 'password' => $request->password])
+        ) {
             $request->session()->regenerate();
-
-            return redirect()->intended(route("admin_home"));
+            $user = auth()->user();
+            switch ($user->Role->role) {
+                case "admin":
+                    return redirect()->intended(route("admin_home"));
+                case "employee":
+                    return redirect()->intended(route("admin_home"));
+                default:
+                    return redirect()->intended(route("user_home"));
+            }
         }
 
         return back()->withErrors([
@@ -40,6 +51,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route("admin_login"));
+        return redirect(route("login"));
     }
 }
