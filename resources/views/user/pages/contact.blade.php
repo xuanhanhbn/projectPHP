@@ -21,7 +21,7 @@
                 <div class="col-lg-12">
                     <div class="inner-content">
                         <h2>Contact Us</h2>
-                        <span>Awesome, clean &amp; creative HTML5 Template</span>
+                       
                     </div>
                 </div>
             </div>
@@ -45,9 +45,10 @@
                 <div class="col-lg-6">
                     <div class="section-heading">
                         <h2>Say Hello. Don't Be Shy!</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <span>Have a nice day! ❤️
                     </div>
                     <form id="contact" action="" method="post">
+                    
                         <div class="row">
                             <div class="col-lg-6">
                                 <fieldset>
@@ -86,7 +87,7 @@
                 <div class="col-lg-8">
                     <div class="section-heading">
                         <h2>By Subscribing To Our Newsletter You Can Get 30% Off</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        
                     </div>
                     <form id="subscribe" action="" method="get">
                         <div class="row">
@@ -115,7 +116,7 @@
                     <div class="row">
                         <div class="col-6">
                             <ul>
-                                <li>Store Location:<br><span>Sunny Isles Beach, FL 33160, United States</span></li>
+                                <li>Store Location:<br><span>8A Ton That Thuyet, My Dinh 2, Cau Giay, Ha Noi</span></li>
                                 <li>Phone:<br><span>010-020-0340</span></li>
                                 <li>Office Location:<br><span>North Miami Beach</span></li>
                             </ul>
