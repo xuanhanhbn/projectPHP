@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(["auth","admin"])->prefix("admin")->group(function (){
+Route::middleware(["auth", "admin"])->prefix("admin")->group(function () {
     include_once("admin.php");
 });
 Route::prefix('/')->group(function () {
