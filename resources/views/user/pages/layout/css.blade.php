@@ -41,4 +41,30 @@
             justify-content: center !important;
 
         }
+
+        .nav .search {
+            background-color: rgb(239 239 239);
+            width: 300px;
+            height: 34px;
+            padding: 3px 16px;
+            font-size: 16px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            margin-right: 40px;
+        }
+
+        .nav .search input {
+            flex: 1;
+            color: rgb(38, 38, 38);
+            border: none;
+            background-color: transparent;
+        }
+
+        .nav .search i {
+            margin-left: 12px;
+        }
     </style>

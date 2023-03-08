@@ -23,8 +23,9 @@
     @endguest
 
     @auth
-    @include('user.layouts.navbars.auth.topnav')
+    @include('user.pages.layout.nav')
     @endauth
+
 
     @yield('content')
     <!-- /container -->

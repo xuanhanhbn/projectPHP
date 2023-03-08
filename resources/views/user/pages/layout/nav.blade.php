@@ -1,11 +1,11 @@
     <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="jumper">
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div> -->
     <!-- ***** Preloader End ***** -->
 
 
@@ -22,10 +22,12 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+                            <li class="search scroll-to-section">
+                                <input type="text" placeholder="Search" />
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </li>
+
                             <li class="scroll-to-section"><a href="{{route("user_home")}}" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#men">Gifts For Men</a></li>
-                            <li class="scroll-to-section"><a href="#women">Gifts For Women</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Gifts For Kids</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
@@ -36,6 +38,20 @@
                                     <li><a href="{{route("user_cart")}}">Shopping Cart</a></li>
                                 </ul>
                             </li>
+                            <li class="submenu">
+                                <a href="javascript:;">Recipient</a>
+                                <ul>
+                                    <li><a href="#">Gifts For Men</a></li>
+                                    <li><a href="#">Gifts For Women</a></li>
+                                    <li><a href="#">Gifts For Kids</a></li>
+                                    <li><a href="#">Gifts For Colleagues</a></li>
+                                    <li><a href="#">Gifts For Parents</a></li>
+                                </ul>
+                            </li>
+                            <!-- <li class="scroll-to-section"><a href="#men">Gifts For Men</a></li>
+                            <li class="scroll-to-section"><a href="#women">Gifts For Women</a></li>
+                            <li class="scroll-to-section"><a href="#kids">Gifts For Kids</a></li> -->
+
                             <li class="submenu">
                                 <a href="javascript:;">Gifts</a>
                                 <ul>
@@ -50,11 +66,20 @@
                             <li class="submenu">
                                 <a href="javascript:;"><i class="fa-solid fa-user fa-xl"></i></a>
                                 <ul class="popups">
-                                    <li><a href="#">Login</a></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                    <li>
+                                        <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
+                                            @csrf
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+
+                                                Log out
+                                            </a>
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="scroll-to-section"><a href="{{route("user_cart")}}"><i class="fa-solid fa-cart-shopping fa-xl"></i></a></li>
+
 
                         </ul>
                         <a class='menu-trigger'>
