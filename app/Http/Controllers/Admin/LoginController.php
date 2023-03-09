@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Support\Facades\Password;
-use App\Http\Middleware;
+
 
 class LoginController extends Controller
 {
@@ -31,9 +28,9 @@ class LoginController extends Controller
             $user = auth()->user();
             switch ($user->Role->role) {
                 case "admin":
-                    return redirect()->intended(route("admin_home"));
+                    return redirect()->intended(route("admin.home"));
                 case "employee":
-                    return redirect()->intended(route("admin_home"));
+                    return redirect()->intended(route("admin.home"));
                 default:
                     return redirect()->intended(route("user_home"));
             }
@@ -51,6 +48,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route("login"));
+        return redirect(route("user_home"));
     }
 }

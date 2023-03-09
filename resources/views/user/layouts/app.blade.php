@@ -13,7 +13,7 @@
     <base href="/">
 
     <!-- styels -->
-    @include('user.pages.layout.css')
+    @include('user.assets.css')
     @yield('custom_css')
 
 <body>
@@ -23,7 +23,7 @@
     @endguest
 
     @auth
-    @include('user.pages.layout.nav')
+    @include('user.layouts.navbars.auth.topnav')
     @endauth
 
 
@@ -31,11 +31,11 @@
     <!-- /container -->
 
     <!-- footer -->
-    @include('user.pages.layout.footer')
+    @include('user.layouts.footers.footer')
     <!-- /footer -->
 
     <!-- script -->
-    @include('user.pages.layout.js')
+    @include('user.assets.js')
     @yield('custom_js')
     <!-- jQuery -->
 </body>
