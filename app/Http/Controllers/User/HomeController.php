@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index(){
         $data = Category::all();
-        return view("user.pages.index",[
+        return view("user.pages.home",[
             "data"=>$data,
         ]);
     }

@@ -115,7 +115,7 @@
                     <div class="col-lg-6">
                         <div class="section-heading">
                             <h2>{{$item->title}} Latest</h2>
-                            <a href="{{url("user/pages/product",["product"=>$item->id])}}">Go to the {{$item->title}} category page</a>
+                            <a href="{{url("/products",["products"=>$item->id])}}">Go to the {{$item->title}} category page</a>
                         </div>
                     </div>
                 </div>
