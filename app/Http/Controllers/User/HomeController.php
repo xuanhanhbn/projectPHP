@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category\Category;
+use App\Models\Product\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view("user.pages.home");
+        $data = Category::all();
+        return view("user.pages.home",[
+            "data"=>$data,
+        ]);
     }
 }
