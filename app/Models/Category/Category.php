@@ -24,4 +24,7 @@ class Category extends Model
     public function FirstProduct(){
         return $this->hasOne(Product::class)->orderBy("price","desc");
     }
+    public function ProductsLatest(){
+        return $this->hasMany(Product::class)->limit(5)->orderBy('id','desc');
+    }
 }
