@@ -108,357 +108,55 @@
         </div>
     </div>
     <!-- ***** Main Banner Area End ***** -->
-
-    <!-- ***** Men Area Starts ***** -->
-    <section class="section" id="men">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h2>Gifts For Men</h2>
-                        <span>Send a gift set to your father, husband, loved one… </span>
+    @foreach($data as $item)
+        <section class="section category"  id="{{$item->title}}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-heading">
+                            <h2>{{$item->title}} Latest</h2>
+                            <a href="{{url("/products",["products"=>$item->id])}}">Go to the {{$item->title}} category page</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="men-item-carousel">
-                        <div class="owl-men-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="men-item-carousel">
+                            <div class="owl-men-item owl-carousel">
+                                @foreach($item->ProductsLatest as $product)
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <img src="{{$product->thumbnail}}" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>{{$product->title}}</h4>
+                                        <span>{{$product->price}}</span>
+                                        <ul class="stars">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
                                         </ul>
                                     </div>
-                                    <img src="user/assets/images/men-04.jpg" alt="">
                                 </div>
-                                <div class="down-content">
-                                    <h4>Van die cast model</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/men-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Ford mustang model</h4>
-                                    <span>$90.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/men-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Jeep wrangler model</h4>
-                                    <span>$150.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/men-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$1200.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ***** Men Area Ends ***** -->
-
-    <!-- ***** Women Area Starts ***** -->
-    <section class="section" id="women">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h2>Gifts For Women</h2>
-                        <span>Send one of our memorable Gift Sets For Women and Gifts For Her to surprise your girlfriend, wife, mother, aunt, daughter of other loved ones!</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="women-item-carousel">
-                        <div class="owl-women-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/women-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Send Flower Teddy Bear</h4>
-                                    <span>$75.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/women-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Forever Roses</h4>
-                                    <span>$45.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/women-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Spring Collection</h4>
-                                    <span>$130.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/women-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Women Area Ends ***** -->
-
-    <!-- ***** Kids Area Starts ***** -->
-    <section class="section" id="kids">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h2>Gifts for Kids</h2>
-                        <span>These gift sets are perfect as Birthday Gifts, Holiday Gifts for kids and children of all ages, both for boys and girls.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="kid-item-carousel">
-                        <div class="owl-kid-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/kid-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>School Collection</h4>
-                                    <span>$80.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/kid-02.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Summer Cap</h4>
-                                    <span>$12.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/kid-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Kid</h4>
-                                    <span>$30.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="user/assets/images/kid-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Kids Area Ends ***** -->
+        </section>
+    @endforeach
 
     <!-- ***** Explore Area Starts ***** -->
     <section class="section" id="explore">
