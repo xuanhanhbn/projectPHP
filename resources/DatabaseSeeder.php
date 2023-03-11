@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         //     "role"=>"ADMIN"
         // ]);
 
-        //\App\Models\Category\Category::factory(10)->create();
-        //\App\Models\Product\Product::factory(50)->create();
+        // \App\Models\Category\Category::factory(10)->create();
+        \App\Models\Product\Product::factory(50)->create();
     }
 }

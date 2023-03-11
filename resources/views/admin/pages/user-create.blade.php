@@ -20,10 +20,16 @@
                         <div class="card-body">
                             <p class="text-uppercase text-sm">User Information</p>
                             <div class="row">
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">First name</label>
+                                        <input class="form-control" type="text" name="firstname"  placeholder="First Name" required>
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Username</label>
-                                        <input class="form-control" type="text" name="username" placeholder="Username" required>
+                                        <label for="example-text-input" class="form-control-label">Last name</label>
+                                        <input class="form-control" type="text" name="lastname" placeholder="Last Name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -36,6 +42,13 @@
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Phone number</label>
                                         <input class="form-control" type="text" name="phone" placeholder="Phone number" required>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Password</label>
+                                        <input class="form-control" type="password" name="password" placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -57,18 +70,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">First name</label>
-                                        <input class="form-control" type="text" name="firstname"  placeholder="First Name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Last name</label>
-                                        <input class="form-control" type="text" name="lastname" placeholder="Last Name" required>
-                                    </div>
-                                </div>
+                         
                             </div>
                             <hr class="horizontal dark">
                             <p class="text-uppercase text-sm">Contact Information</p>
@@ -99,9 +101,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr class="horizontal dark">
-                            <p class="text-uppercase text-sm">Remarks</p>
-                            <div class="row">
+                            <!-- <hr class="horizontal dark">
+                            <p class="text-uppercase text-sm">Remarks</p> -->
+                            <!-- <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Remarks</label>
@@ -109,7 +111,7 @@
                                             placeholder="Remarks">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>
