@@ -43,8 +43,8 @@
             </div>
             <div class="col-lg-4">
                 <div class="right-content">
-                    <h4>New Green Jacket</h4>
-                    <span class="price">$75.00</span>
+                    <h4>{{$item->title}}</h4>
+                    <span class="price">VND {{ number_format($item->price, 0) }}</span>
                     <ul class="stars">
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
