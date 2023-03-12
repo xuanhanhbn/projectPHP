@@ -22,16 +22,11 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="search scroll-to-section">
-                                <input type="text" placeholder="Search" />
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </li>
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
                                 <ul>
                                     <li><a href="{{route("user_about")}}">About Us</a></li>
                                     <li><a href="{{route("user_product-listing")}}">Products</a></li>
-                                    <!-- <li><a href="{{route("user_product-single")}}">Single Product</a></li> -->
                                     <li><a href="{{route("user_contact")}}">Contact Us</a></li>
                                 </ul>
                             </li>
