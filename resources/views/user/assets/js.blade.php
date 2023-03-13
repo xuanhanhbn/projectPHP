@@ -16,14 +16,15 @@
     <script src="user/assets/js/imgfix.min.js"></script> 
     <script src="user/assets/js/slick.js"></script> 
     <script src="user/assets/js/lightbox.js"></script> 
-    <script src="user/assets/js/isotope.js"></script> 
+    <script src="user/assets/js/isotope.js"></script>
+    <script src="user/assets/js/quantity.js"></script>
     <!-- cart -->
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="user/assets/js/jquery.nice-select.min.js"></script>
+    <script src="user/assets/js/jquery-ui.min.js"></script>
+    <script src="user/assets/js/jquery.slicknav.js"></script>
+    <script src="user/assets/js/mixitup.min.js"></script>
+    <script src="user/assets/js/owl.carousel.min.js"></script>
+    <script src="user/assets/js/main.js"></script>
     <!-- /cart -->
     <!-- Global Init -->
     <script src="user/assets/js/custom.js"></script>

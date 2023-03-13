@@ -11,7 +11,7 @@
                             <div class="inner-content">
                                 <h4>We Are Arts Shop</h4>
                                 <div class="main-border-button">
-                                    <a href="#">Purchase Now!</a>
+                                    <a href="{{route("user_product-listing")}}">Purchase Now!</a>
                                 </div>
                             </div>
                             <img src="user/assets/images/banner-1.jpg" alt="">
