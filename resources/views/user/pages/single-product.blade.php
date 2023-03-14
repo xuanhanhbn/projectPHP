@@ -1,41 +1,33 @@
 @extends('user.layouts.app')
 @section("content")
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-    
-    
-    <!-- ***** Header Area Start ***** -->
-    {{-- @include('user.layouts.navbars.guest.topnav') --}}
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="page-heading" id="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-content">
-                        <h2>Single Product Page</h2>
-                        <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
-                    </div>
+
+
+<!-- ***** Header Area Start ***** -->
+{{-- @include('user.layouts.navbars.guest.topnav') --}}
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Main Banner Area Start ***** -->
+<div class="page-heading" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-content">
+                    <h2>Single Product Page</h2>
+                    <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
+</div>
+<!-- ***** Main Banner Area End ***** -->
 
 
-    <!-- ***** Product Area Starts ***** -->
-    <section class="section" id="product">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
+<!-- ***** Product Area Starts ***** -->
+<section class="section" id="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
                 <div class="left-images">
                     <img src="user/assets/images/single-product-01.jpg" alt="">
                     <img src="user/assets/images/single-product-02.jpg" alt="">
@@ -54,7 +46,8 @@
                     </ul>
                     <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.</span>
                     <div class="quote">
-                        <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod.</p>
+                        <i class="fa fa-quote-left"></i>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod.</p>
                     </div>
                     <div class="quantity-content">
                         <div class="left-content">
@@ -68,12 +61,20 @@
                     </div>
                     <div class="total">
                         <h4>Total: $210.00</h4>
-                        <div class="main-border-button"><a href="#">Add To Cart</a></div>
+
+                        
+                        <button id="cart-btn" class="cart-button">
+                            <span class="add_to_cart" >Add to cart</span>
+                            <span class="added" >Added</span>
+                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-box"></i>
+                        </button>
+
                     </div>
                 </div>
             </div>
-            </div>
         </div>
-    </section>
-    <!-- ***** Product Area Ends ***** -->
+    </div>
+</section>
+<!-- ***** Product Area Ends ***** -->
 @endsection

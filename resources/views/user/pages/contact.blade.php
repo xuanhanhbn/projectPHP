@@ -1,14 +1,6 @@
 @extends('user.layouts.app')
 @section("content")
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
+
 
     <!-- ***** Header Area Start ***** -->
     {{-- @include('user.layouts.navbars.guest.topnav') --}}

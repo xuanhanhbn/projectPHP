@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function index(){
-        return view("user.pages.cart");
+        $carts = session()->get('cart');
+       if($carts == null) {
+        return view("user.pages.cartNull");
+       }else{
+        return view("user.pages.cart", compact('carts'));
+       }
     }
 }

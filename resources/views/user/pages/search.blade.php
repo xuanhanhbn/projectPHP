@@ -1,8 +1,6 @@
-@extends('user.layouts.app')
-@section("content")
+@extends("user.layouts.app")
 
-
-
+@section('content')
 <!-- ***** Header Area Start ***** -->
 {{-- @include('user.layouts.navbars.guest.topnav') --}}
 <!-- ***** Header Area End ***** -->
@@ -30,15 +28,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
-                    <h2>Our Latest Products</h2>
-                    <span>Check out all of our products.</span>
+                    <h2>Result for Products</h2>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            @foreach($data as $item)
+            @foreach($products as $item)
             <div class="col-lg-4">
                 <div class="item">
                     <div class="thumb">
@@ -73,7 +70,7 @@
             </div>
             @endforeach
 
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <div class="pagination">
                     <ul>
                         <li>
@@ -93,7 +90,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

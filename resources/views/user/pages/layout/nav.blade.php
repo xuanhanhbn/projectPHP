@@ -1,11 +1,11 @@
     <!-- ***** Preloader Start ***** -->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="jumper">
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div> -->
+    </div>
     <!-- ***** Preloader End ***** -->
 
 
@@ -22,11 +22,13 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="search scroll-to-section">
-                                <input type="text" placeholder="Search" />
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </li>
+                            <form action="/search" class="nav-form">
+                                <li class="search scroll-to-section">
+                                    <input type="text" name="query" placeholder="Search" class="search-box" />
+                                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </li>
 
+                            </form> 
                             <li class="scroll-to-section"><a href="{{route("user_home")}}" class="active">Home</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>
@@ -78,7 +80,12 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="{{route("user_cart")}}"><i class="fa-solid fa-cart-shopping fa-xl"></i></a></li>
+                            <li class="scroll-to-section">
+                                <a href="{{route("user_cart")}}">
+                                    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                                   
+                                </a>
+                            </li>
 
 
                         </ul>

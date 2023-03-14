@@ -5,7 +5,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{{route("user_home")}}" class="logo">
-                        <img src="user/assets/images/logo.png">
+                        <img src="user/assets/images/arts-logo.png">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
