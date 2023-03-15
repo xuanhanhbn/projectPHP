@@ -42,10 +42,10 @@ class ProductController extends Controller
             "message" => 'ok'
         ], 200);
     }
-    // search name
-    public function Search(Request $request)
-    {
-        $data = Product::where('title', 'like', '%' . $request->input('query') . '%')->get();
-        return view('user.pages.search', ['products' => $data]);
-    }
+    // // search name
+    // public function Search(Request $request)
+    // {
+    //     $data = Product::where('title', 'like', '%' . $request->input('query') . '%')->get();
+    //     return view('user.pages.search', ['products' => $data]);
+    // }
 }

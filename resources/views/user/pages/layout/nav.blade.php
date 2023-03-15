@@ -22,13 +22,12 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <form action="/search" class="nav-form">
+                          
                                 <li class="search scroll-to-section">
                                     <input type="text" name="query" placeholder="Search" class="search-box" />
                                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </li>
 
-                            </form> 
                             <li class="scroll-to-section"><a href="{{route("user_home")}}" class="active">Home</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Pages</a>

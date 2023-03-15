@@ -7,8 +7,6 @@ Route::get('/product', [App\Http\Controllers\User\ProductController::class, 'ind
 Route::get('/cart', [App\Http\Controllers\User\CartController::class, 'index'])->name("user_cart");
 // add to cart
 Route::get("/add-to-cart/{id}",[App\Http\Controllers\User\ProductController::class,"addToCart"])->name("add_to_cart");
-// search
-Route::get("/search",[App\Http\Controllers\User\ProductController::class,"search"])->name("search");
 
 
 
