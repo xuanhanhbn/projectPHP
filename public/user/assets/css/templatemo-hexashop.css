@@ -665,24 +665,26 @@ banner
 */
 
 .main-banner {
-  border-bottom: 3px dotted #eee;
-  padding-top: 160px;
+  padding-top: 80px;
   padding-bottom: 30px;
 }
 
-.main-banner .left-content .thumb img {
+.main-banner .right-content .thumb img {
   width: 100%;
   overflow: hidden;
 }
 
-.main-banner .left-content .inner-content {
+.main-banner .right-content .inner-content {
   position: absolute;
-  left: 100px;
+  right: 100px;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.main-banner .left-content .inner-content h4 {
+.main-banner .right-content .inner-content h4 {
   color: #fff;
   margin-top: -10px;
   font-size: 52px;
@@ -690,7 +692,7 @@ banner
   margin-bottom: 20px;
 }
 
-.main-banner .left-content .inner-content span {
+.main-banner .right-content .inner-content span {
   font-size: 16px;
   color: #fff;
   font-weight: 400;

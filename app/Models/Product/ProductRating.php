@@ -13,7 +13,7 @@ class ProductRating extends Model
 
     protected $fillable = [
         "rate",
-        "comment"
+        "comment",
     ];
 
     public function Product(){
