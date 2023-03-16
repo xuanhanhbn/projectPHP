@@ -22,39 +22,9 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="submenu">
-                                <a href="javascript:;">Pages</a>
-                                <ul>
-                                    <li><a href="{{route("user_about")}}">About Us</a></li>
-                                    <li><a href="{{route("user_product-listing")}}">Products</a></li>
-                                    <li><a href="{{route("user_contact")}}">Contact Us</a></li>
-                                </ul>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Recipient</a>
-                                <ul>
-                                    <li><a href="#">Gifts For Men</a></li>
-                                    <li><a href="#">Gifts For Women</a></li>
-                                    <li><a href="#">Gifts For Kids</a></li>
-                                    <li><a href="#">Gifts For Colleagues</a></li>
-                                    <li><a href="#">Gifts For Parents</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li class="scroll-to-section"><a href="#men">Gifts For Men</a></li>
-                            <li class="scroll-to-section"><a href="#women">Gifts For Women</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Gifts For Kids</a></li> -->
-
-                            <li class="submenu">
-                                <a href="javascript:;">Gifts</a>
-                                <ul>
-                                    <li><a href="#">ALL GIFT BASKETS</a></li>
-                                    <li><a href="#">Chocolate Gifts</a></li>
-                                    <li><a href="#">Flowers Gifts</a></li>
-                                    <li><a href="#">Candle Gift Sets</a></li>
-                                    <li><a href="#">Most Popular Gifts</a></li>
-                                    <li><a href="#">New Gifts Arrivals</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{route("user_about")}}">About Us</a></li>
+                            <li><a href="{{route("user_product-listing")}}">Products</a></li>
+                            <li><a href="{{route("user_contact")}}">Contact Us</a></li>
                             <li class="submenu">
                                 <a href="javascript:;"><i class="fa-solid fa-user fa-xl"></i> {{Auth::user()->lastname}}</a>
                                 <ul>

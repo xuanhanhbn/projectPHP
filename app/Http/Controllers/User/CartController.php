@@ -43,7 +43,7 @@ class CartController extends Controller
                 ]);
             }
         }
-        $this->index();
+        return redirect()->route('user_cart');
     }
 
     public function checkout(Request $request)
