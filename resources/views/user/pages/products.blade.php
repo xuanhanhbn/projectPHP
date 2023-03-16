@@ -64,7 +64,8 @@
                 </div>
                 <div class="col-lg-6 nav">
                     <form role="form" method="GET" action={{ route('user_product-listing') }} id="searchForm"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data"
+                        style="display: flex; flex-direction: column; align-items: flex-end; width: 100%">
                         <div class="search scroll-to-section">
                             <input class="form-control" type="text" placeholder="Search" id="search" name="key"
                                 value="{{ $key ? $key : null }}">
