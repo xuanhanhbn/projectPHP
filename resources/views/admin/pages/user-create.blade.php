@@ -51,6 +51,7 @@
                                         <input class="form-control" type="password" name="password" placeholder="Password" required>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Account Role</label>

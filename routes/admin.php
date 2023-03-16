@@ -12,5 +12,5 @@ Route::prefix('product')->group(function (){
     Route::post('create',[App\Http\Controllers\Admin\ProductController::class,"store"])->name("create_product");
     Route::get("edit/{product}",[App\Http\Controllers\Admin\ProductController::class,"edit"]);
     Route::post("edit/{product}",[App\Http\Controllers\Admin\ProductController::class,"update"]);
-    Route::post("delete/{product}",[App\Http\Controllers\Admin\ProductController::class,"delete"]);
+    Route::post("delete/{product}",[App\Http\Controllers\Admin\ProductController::class,"delete"])->name('user_management.delete');
 });
