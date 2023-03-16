@@ -64,10 +64,10 @@
                                                 <input id="employee" type="radio" name="role" value="EMPLOYEE">
                                                 <label for="employee">Employee</label>
                                             </div>
-                                            <div style="display: flex; flex-direction: row; align-items: center">
+                                            <!-- <div style="display: flex; flex-direction: row; align-items: center">
                                                 <input id="customer" type="radio" name="role" value="CUSTOMER">
                                                 <label for="customer">Customer</label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

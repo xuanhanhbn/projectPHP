@@ -19,6 +19,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phone
                                     </th>
+                                   
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Create Date</th>
@@ -29,26 +30,28 @@
                             </thead>
                             <tbody>
                                 @foreach($user as $item)
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-3 py-1">
-                                            <!-- <div>
-                                                <img src="./img/team-1.jpg" class="avatar me-3" alt="image">
-                                            </div> -->
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">{{$item->email}}</h6>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex px-3 py-1">
+                                                <!-- <div>
+                                                    <img src="./img/team-1.jpg" class="avatar me-3" alt="image">
+                                                </div> -->
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="mb-0 text-sm">{{$item->email}}</h6>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-sm font-weight-bold mb-0">{{$item->phone}}</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <p class="text-sm font-weight-bold mb-0">{{$item->created_at}}</p>
-                                    </td>
-                                
-                                </tr>
-                           @endforeach
+                                        </td>
+                                        <td>
+                                            <p class="text-sm font-weight-bold mb-0">{{$item->phone}}</p>
+                                        </td>
+                                        
+                                        
+                                        <td class="align-middle text-center text-sm">
+                                            <p class="text-sm font-weight-bold mb-0">{{$item->created_at}}</p>
+                                        </td>
+                                    
+                                    </tr>
+                             @endforeach
                             </tbody>
                         </table>
                     </div>

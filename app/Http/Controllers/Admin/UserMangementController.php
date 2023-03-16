@@ -9,12 +9,15 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User\User;
 
+
 class UserMangementController extends Controller
 {
     public function index(){
         // $userId = Auth::user()->id;
         $user = User::all();
-        return view("admin.pages.user-management",['user'=>$user]);
+        $role = Role::all();
+        // dd($role);
+        return view("admin.pages.user-management",['user'=>$user,'role'=>$role]);
     }
     public function createIndex(){
         return view ("admin.pages.user-create");
@@ -23,12 +26,11 @@ class UserMangementController extends Controller
     {
          
         $validateData = $request->validate([
-                'firstname' => 'required|min:5|max:255',
-                'lastname' => 'required|min:5|max:255',
+                // 'firstname' => 'required|min:5|max:255',
+                // 'lastname' => 'required|min:5|max:255',
                 'email' => 'required|email|max:255|unique:users,email',
                 'phone' => 'required|digits_between:10,12|numeric|unique:users,phone',
                 'password' => 'required|min:5|max:255',
-
                 'role' => 'required'
              ],[
                 "required"=>"Vui lòng nhập thông tin",
@@ -36,7 +38,7 @@ class UserMangementController extends Controller
                 "min"=> "Phải nhập :attribute  tối thiểu :min",
              ]);
             try {
-                $user = User::create([
+                $admin = User::create([
                     'phone' => $request->get('phone'),
                     'email' => $request->get('email'),
                     'password' => Hash::make($request->password),
@@ -45,17 +47,20 @@ class UserMangementController extends Controller
                     'city' => $request->get('city'),
                     'address' => $request->get('address'),
                     'country' => $request->get('country'),
-                    'postal' => $request->get('postal')
+                    'postal' => $request->get('postal'),
+                    'role'=>$request->get('role')
                 ]);
-                  return redirect()->to("admin/user-management")->with("success","Thêm sản phẩm thành công");
+                    $role = Role::create([
+                    "user_id"=>$admin->id,
+                    "role"=>"admin"
+                 ])
+                 ;
+                  return redirect()->to("admin/user-management")->with("success","Create Account Success!");
 
-            } catch (\Throwable $th) {
+            } catch (\Throwable $e) {
                 return redirect()->back()->with("error",$e->getMessage());
             }
-        // $role = Role::create([
-        //     "id"=>$user->id,
-        //     "role"=>"ADMIN"
-        // ]);
+    
         // auth()->login($user);
 
     }
