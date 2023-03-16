@@ -1,146 +1,117 @@
-@extends("user.layouts.app")
-
+@extends('user.layouts.app')
+@section('custom_js')
+    <script type="text/javascript">
+        function autoCal(product, value) {
+            subTotal = document.getElementById(`subtotal_${product.id}`);
+            totalEl = document.getElementById("total");
+            subTotal.innerText = (product.product.price * value).toLocaleString();
+            cart = <?php echo $cart; ?>;
+            total = 0;
+            cart.forEach(element => {
+                sub = document.getElementById(`subtotal_${element.id}`);
+                total += parseFloat(sub.innerText.replaceAll(",", ""));
+            });
+            totalEl.innerText = total.toLocaleString();
+            checkoutBtn = document.getElementById("checkoutBtn");
+            if (total <= 0) {
+                checkoutBtn.disabled = true;
+                checkoutBtn.style.opacity = 0.5;
+            } else {
+                checkoutBtn.disabled = false;
+                checkoutBtn.style.opacity = 1;
+            }
+        }
+    </script>
+@endsection
 @section('content')
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <!-- Breadcrumb Section Begin -->
+        <!-- ***** Main Banner Area End ***** -->
+        <!-- Breadcrumb Section End -->
 
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
+        <!-- Shoping Cart Section Begin -->
+        <section class="shoping-cart spad">
+            <div class="container">
+                <div class="row">
+                    <form method="POST" action="{{ route('user_cart.checkout') }}">
+                        @csrf
+                        <div class="row" style="flex-direction: row">
+                            <div class="col-lg-6">
+                                <div class="shoping__cart__btns">
+                                    <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                                    <h1 style="margin-top: 30px">Shopping Cart</h1>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="shoping__checkout">
+                                    <h5>Cart Total (VND):</h5>
+                                    <ul>
+                                        <li>
+                                            <span id="total"
+                                                style="font-size: 30px; color: #000000">{{ number_format($total, 0) }}</span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="primary-btn cart-btn cart-btn-right">
+                                        Upadate Cart</a>
+                                    <button class="primary-btn" id="checkoutBtn"
+                                        style="border: none; opacity: @if ($total <= 0) 0.5 @else 1 @endif"
+                                        @if ($total <= 0) disabled @endif>PROCEED TO CHECKOUT</button>
 
-
-    <!-- Breadcrumb Section Begin -->
-    <div class="page-heading about-page-heading" id="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-content">
-                        <h2>Shopping Cart</h2>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Main Banner Area End ***** -->
-    <!-- Breadcrumb Section End -->
-
-    <!-- Shoping Cart Section Begin -->
-    <section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">Products</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $55.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $110.00
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $39.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $69.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right">
-                            Upadate Cart</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
-                        <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
-                        </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
-                    </div>
+                        <div class="col-lg-12">
+                            <div class="shoping__cart__table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="shoping__product">Products</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($cart as $product)
+                                            <input type='hidden' name="cart[{{ $loop->index }}]['id']"
+                                                value='{{ $product->id }}'>
+                                            <tr>
+                                                <td class="shoping__cart__item">
+                                                    <img src="img/cart/cart-2.jpg" alt="">
+                                                    <h5>{{ $product->Product ? $product->Product['title'] : '' }}</h5>
+                                                </td>
+                                                <td class="shoping__cart__price" id="price">
+                                                    {{ number_format($product->Product ? $product->Product['price'] : 0, 0) }}
+                                                </td>
+                                                <td class="shoping__cart__quantity">
+                                                    <div class="quantity buttons_added">
+                                                        <input type="button" value="-" class="minus">
+                                                        <input type="number" step="1" min="0" max=""
+                                                            name="cart[{{ $loop->index }}]['quantity']"
+                                                            value="{{ $product->quantity }}" title="Qty"
+                                                            class="input-text qty text" size="4" pattern=""
+                                                            inputmode=""
+                                                            onchange="autoCal({{ $product }}, this.value)">
+                                                        <input type="button" value="+" class="plus">
+                                                    </div>
+                                                </td>
+                                                <td class="shoping__cart__total" id="subtotal_{{ $product->id }}">
+                                                    {{ number_format($product->Product ? $product->Product['price'] * $product->quantity : 0, 0) }}
+                                                </td>
+                                                <td class="shoping__cart__item__close">
+                                                    <span class="icon_close"></span>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Shoping Cart Section End -->
+        </section>
+        <!-- Shoping Cart Section End -->
     @endsection

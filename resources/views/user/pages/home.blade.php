@@ -11,7 +11,7 @@
                             <div class="inner-content">
                                 <h4>We Are Arts Shop</h4>
                                 <div class="main-border-button">
-                                    <a href="#">Purchase Now!</a>
+                                    <a href="{{route("user_product-listing")}}">Purchase Now!</a>
                                 </div>
                             </div>
                             <img src="user/assets/images/banner-1.jpg" alt="">
@@ -130,16 +130,16 @@
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="{{route("user_product-single",["id" => $product->id])}}"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="{{route("user_product-single",["id" => $product->id])}}"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="{{route("user_product-single",["id" => $product->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <img src="{{$product->thumbnail}}" alt="">
                                     </div>
                                     <div class="down-content">
                                         <h4>{{$product->title}}</h4>
-                                        <span>{{$product->price}}</span>
+                                        <span>VND {{number_format($product->price, 0)}}</span>
                                         <ul class="stars">
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star"></i></li>
