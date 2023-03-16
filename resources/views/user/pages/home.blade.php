@@ -4,7 +4,9 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <div class="container-fluid">
-        <div class="left-content" style="height: 628px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="right-content">
                         <div class="thumb">
                             <div class="inner-content">
                                 <h4>We Are Arts Shop</h4>
@@ -15,6 +17,8 @@
                             <img src="user/assets/images/banner-1.jpg" alt="">
                         </div>
                     </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ***** Main Banner Area End ***** -->
