@@ -30,4 +30,9 @@ class CartController extends Controller
         }
         $this->index();
     }
+
+    public function payment() {
+        return view("user.pages.payment");
+    }
+    
 }
