@@ -59,7 +59,7 @@
                                 <a href="javascript:;"><i class="fa-solid fa-user fa-xl"></i> {{Auth::user()->lastname}}</a>
                                 <ul>
                                     <li><a href="{{route("user_cart")}}"><i class="fa-solid fa-cart-shopping fa-xm"></i> Shopping Cart</a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i> Liked Products</a></li>
+                                    <li><a href="{{route('liked-product')}}"><i class="fa fa-heart"></i> Liked Products</a></li>
                                     <li><a href="#"><i class="fa-solid fa-user fa-xm"></i> Profile</a></li>
                                     <li>
                                         <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">

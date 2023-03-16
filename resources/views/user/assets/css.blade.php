@@ -80,6 +80,19 @@
     <!-- payment -->
 
     <style>
+        .liked {
+            width: 100px;
+            height: 100px;
+        }
+
+        .liked-icon {
+            color: red;
+            cursor: pointer;
+        }
+
+        .like-prd {
+            cursor: pointer;
+        }
 
 
         .sub-body {
@@ -233,5 +246,3 @@
             width: 315px;
         }
     </style>
-
- 

@@ -75,7 +75,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__btns">
-                            <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                            <a href="{{route('user_product-listing')}}" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                             <a href="#" class="primary-btn cart-btn cart-btn-right">
                                 Upadate Cart</a>
                         </div>

@@ -43,4 +43,8 @@ class ProductController extends Controller
             "item" => $item
         ]);
     }
+
+    public function liked() {
+        return view('user.pages.likeproducts');
+    }
 }
