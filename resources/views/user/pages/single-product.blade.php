@@ -7,10 +7,10 @@
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
-    
-    
+
+
     <!-- ***** Header Area Start ***** -->
     {{-- @include('user.layouts.navbars.guest.topnav') --}}
     <!-- ***** Header Area End ***** -->
@@ -43,8 +43,8 @@
             </div>
             <div class="col-lg-4">
                 <div class="right-content">
-                    <h4>New Green Jacket</h4>
-                    <span class="price">$75.00</span>
+                    <h4>{{$product->title}}</h4>
+                    <span class="price">{{$product->price}}</span>
                     <ul class="stars">
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
@@ -52,7 +52,7 @@
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                     </ul>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.</span>
+                    <span>{{$product->description}}</span>
                     <div class="quote">
                         <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod.</p>
                     </div>

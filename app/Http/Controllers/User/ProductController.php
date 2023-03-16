@@ -17,15 +17,16 @@ class ProductController extends Controller
         ]);
     }
     public function indexCategory($categoryId){
-        $category = Category::all();
+        $category = Category::find($categoryId);
         $data =  Product::where('category_id',$categoryId)->paginate(12);
         return view("user.pages.products",[
             "data"=>$data,
             "category"=>$category
         ]);
     }
-    public function indexSingle($productId){
-        dd($productId);
-        return view("user.pages.single-product");
+    public function indexSingle(Product $product){
+        return view("user.pages.single-product",[
+            "product"=>$product
+        ]);
     }
 }

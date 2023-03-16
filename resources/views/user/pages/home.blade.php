@@ -130,9 +130,9 @@
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="{{route("user_product-single")}}"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="{{route("user_product-single")}}"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="{{route("user_product-single")}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <img src="{{$product->thumbnail}}" alt="">
