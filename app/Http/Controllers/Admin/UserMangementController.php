@@ -64,17 +64,7 @@ class UserMangementController extends Controller
         // auth()->login($user);
 
     }
-    public function delete(User $user, Product $product) {
-        $product = session()->has("product") && is_array(session("product"))?session("product"):[];
-        foreach ($product as $key=>$item){
-            if($item->id == $user->id){
-                unset($product[$key]);
-                break;
-            }
-        }
-        session(["product"=>$product]);
-        return redirect()->back();
-    }
+
 }
 
 

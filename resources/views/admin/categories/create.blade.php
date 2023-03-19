@@ -15,7 +15,7 @@
                     <h3 class="card-title">Create Product</h3>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{url("/admin/product/create")}}" role="form" enctype="multipart/form-data">
+                    <form method="post" action="{{url("/admin/categories/create")}}" role="form" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
 
@@ -27,16 +27,16 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input class="form-control" type="text" value="" name="price" placeholder="Enter price..." required>
-                                @error("price")
+                                <label>key</label>
+                                <input class="form-control" type="text" value="" name="key" placeholder="Enter key..." required>
+                                @error("key")
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Thumbnail</label>
-                                <input class="form-control" type="file" value="" name="thumbnail" required>
-                                @error("thumbnail")
+                                <label>Image</label>
+                                <input class="form-control" type="file" value="" name="image">
+                                @error("Image")
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
@@ -44,33 +44,16 @@
                                 <label>Description</label>
                                 <textarea class="form-control" name="description">{{old("description")}}</textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Stock</label>
-                                <input class="form-control" type="text" value="" name="in_stock" placeholder="Enter stock..." required>
-                                @error("stock")
-                                <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select name="category_id" class="form-control select2" required>
-                                    @foreach($categories as $item)
-                                    <option @if(old("category_id")==$item->id) selected @endif value="{{$item->id}}">{{$item->title}}</option>
-                                    @endforeach
-                                </select>
-                                @error("category_id")
-                                <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
+
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary">Submit</button>
                             <div>
                                 <a class="btn btn-primary  " href="{{url("admin/product/list")}}">Back</a>
-
                             </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
                             </a>
                         </div>
                     </form>

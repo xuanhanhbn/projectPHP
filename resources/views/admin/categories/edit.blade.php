@@ -6,76 +6,58 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
 @endsection
 @section('content')
-@include('admin.layouts.navbars.auth.topnav', ['title' => 'Create Product'])
+@include('admin.layouts.navbars.auth.topnav', ['title' => 'Edit Category'])
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Create Product</h3>
+                    <h3 class="card-title">Edit Category</h3>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{url("/admin/product/create")}}" role="form" enctype="multipart/form-data">
+                    <form method="post" action="{{url("/admin/categories/edit",["category"=>$category->id])}}" role="form" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
 
                             <div class="form-group">
                                 <label>Title</label>
-                                <input class="  form-control" type="text" value="" name="title" placeholder="Enter title..." required>
+                                <input class="  form-control" type="text" value="{{$category->title}}" name="title" placeholder="Enter title..." required>
                                 @error("title")
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input class="form-control" type="text" value="" name="price" placeholder="Enter price..." required>
-                                @error("price")
+                                <label>Key</label>
+                                <input class="form-control" type="text" value="{{$category->key}}" name="key" placeholder="Enter key..." required>
+                                @error("key")
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Thumbnail</label>
-                                <input class="form-control" type="file" value="" name="thumbnail" required>
-                                @error("thumbnail")
+                                <label>Image</label>
+                                <input class="form-control" type="file" value="{{$category->image}}" name="image" >
+                                @error("image")
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description">{{old("description")}}</textarea>
+                                <textarea class="form-control" value="{{$category->description}}" name="description">{{old("description")}}</textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Stock</label>
-                                <input class="form-control" type="text" value="" name="in_stock" placeholder="Enter stock..." required>
-                                @error("stock")
-                                <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select name="category_id" class="form-control select2" required>
-                                    @foreach($categories as $item)
-                                    <option @if(old("category_id")==$item->id) selected @endif value="{{$item->id}}">{{$item->title}}</option>
-                                    @endforeach
-                                </select>
-                                @error("category_id")
-                                <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
+
                         </div>
                         <!-- /.card-body -->
-
+                        <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary">Submit</button>
                             <div>
-                                <a class="btn btn-primary  " href="{{url("admin/product/list")}}">Back</a>
-
+                                <a class="btn btn-primary  " href="{{url("admin/categories/list")}}">Back</a>
                             </div>
+                            <button type="submit" class="btn btn-primary">Edit</button>
                             </a>
                         </div>
+
                     </form>
                 </div>
-                <!-- /.card-body -->
 
             </div>
         </div>
