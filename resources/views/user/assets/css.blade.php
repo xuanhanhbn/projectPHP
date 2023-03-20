@@ -1,4 +1,5 @@
     <!-- Additional CSS Files -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://kit.fontawesome.com/495c8b4cb1.css" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="user/assets/css/bootstrap.min.css">
@@ -80,10 +81,9 @@
     <!-- payment -->
 
     <style>
-        .liked {
-            width: 100px;
-            height: 100px;
-        }
+       .like span {
+        margin-right: 15px;
+       }
 
         .liked-icon {
             color: red;
@@ -92,6 +92,11 @@
 
         .like-prd {
             cursor: pointer;
+        }
+
+        .liked-icon button {
+            background-color: transparent;
+            border: none;
         }
 
 
@@ -244,5 +249,123 @@
             margin: px auto 0;
             padding: 18px;
             width: 315px;
+        }
+    </style>
+
+    <!-- liked-products -->
+
+    <style>
+        .like-share {
+            width: 100%;
+            height: 24px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .share {
+            display: flex;
+        }
+
+        .share span {
+            margin-right: 10px;
+        }
+
+        .share-icon i {
+            margin: 0 5px;
+        }
+
+        .axc2 {
+            width: 1px;
+            height: 100%;
+            background-color: grey;
+        }
+
+        #like-button:hover {
+            cursor: pointer;
+            color: #cd0928;
+        }
+
+        #like-button.not-liked {
+            color: #000;
+        }
+
+        #like-button.not-liked:hover {
+            color: #cd0928;
+        }
+
+        #like-button.liked {
+            color: #cd0928;
+        }
+
+        #like-button.liked-shaked {
+            -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            transform: translate3d(0, 0, 0) rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
+        @-webkit-keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(0, 0px, 0) rotate(0deg);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(0, -2px, 0) rotate(5deg);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(0, 0px, 0) rotate(0deg);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(0, -2px, 0) rotate(-5deg);
+            }
+        }
+
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(0, 0px, 0) rotate(0deg);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(0, -2px, 0) rotate(5deg);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(0, 0px, 0) rotate(0deg);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(0, -2px, 0) rotate(-5deg);
+            }
+        }
+
+        .like {
+            display: flex;
+        }
+
+        .right-content item-title,
+        .down-content h4 {
+            width: 70%;
+        }
+
+        .right-content stars,
+        .down-content .stars {
+            width: 30%;
         }
     </style>
