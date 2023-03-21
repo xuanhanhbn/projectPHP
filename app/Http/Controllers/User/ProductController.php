@@ -7,8 +7,10 @@ use App\Models\Category\Category;
 use App\Models\Category\Recipient;
 use App\Models\Product\Product;
 use App\Models\User\Role;
+use App\Models\User\Likeproduct;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -90,4 +92,27 @@ class ProductController extends Controller
     //     $data = Product::where('title', 'like', '%' . $request->input('query') . '%')->get();
     //     return view('user.pages.search', ['products' => $data]);
     // }
+
+    public function liked()
+    {
+        return view('user.pages.likeproducts');
+    }
+
+    public function like(Request $request)
+    {
+        $productId = $request->productId;
+        $userId = Auth::user()->id;
+
+        $liked = Likeproduct::where('user_id', '=', $userId)
+            ->where('product_id', '=', $productId)->first();
+            
+        if ($liked) {
+            $liked->delete();
+        } else {
+            Likeproduct::create([
+                "user_id" => $userId,
+                "product_id" => $productId,
+            ]);
+        }
+    }
 }
