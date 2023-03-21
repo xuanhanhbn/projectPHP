@@ -15,8 +15,10 @@ class CreateLikeproductsTable extends Migration
     {
         Schema::create('likeproducts', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('product_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign("user_id")->references("id")->on("users");
+            $table->unsignedBigInteger('product_id');
+            $table->foreign("product_id")->references("id")->on("products");
             $table->timestamps();
         });
     }

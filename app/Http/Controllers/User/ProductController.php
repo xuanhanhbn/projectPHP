@@ -62,9 +62,13 @@ class ProductController extends Controller
         $item = Product::where('id', $id)->first();
         $relatedCategoryItems = $item->Category->Products->where("id","!=",$item->id);
         $relatedRecipientItems = $item->Recipient->Products->where("id","!=",$item->id);
-        $userId = Auth::user()->id;
-        $liked = Likeproduct::where('user_id', '=', $userId)
-        ->where('product_id', '=', $id)->first();
+        $liked = null;
+        if(Auth::check())
+        {
+            $userId = Auth::user()->id;
+            $liked = Likeproduct::where('user_id', '=', $userId)
+            ->where('product_id', '=', $id)->first();
+        }
         return view("user.pages.single-product", [
             "item" => $item,
             "isLikedByUser" => $liked != null,
@@ -103,7 +107,9 @@ class ProductController extends Controller
 
     public function liked()
     {
-        return view('user.pages.likeproducts');
+        $userId = Auth::user()->id;
+        $liked = Likeproduct::where('user_id', '=', $userId)->get();
+        return view('user.pages.likeproducts',["likeProducts" => $liked]);
     }
 
     public function like(Request $request)
