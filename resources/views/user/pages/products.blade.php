@@ -48,9 +48,9 @@
     <!-- ***** Preloader End ***** -->
 
 
-<!-- ***** Header Area Start ***** -->
-{{-- @include('user.layouts.navbars.guest.topnav') --}}
-<!-- ***** Header Area End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    {{-- @include('user.layouts.navbars.guest.topnav') --}}
+    <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="page-heading" id="top" style="background-image: none">
@@ -92,20 +92,21 @@
                             <select name="price" id="price" class="filter">
                                 <option @if ($categoryFilter == null) selected @endif disabled hidden>Price</option>
                                 <option value="">--None--</option>
-                                <option @if ($priceFilter == "< 200000") selected @endif value="< 200000">
+                                <option @if ($priceFilter == '< 200000') selected @endif value="< 200000">
                                     < 200,000 VND</option>
-                                <option @if ($priceFilter == "between 200000 and 500000") selected @endif value="between 200000 and 500000">
+                                <option @if ($priceFilter == 'between 200000 and 500000') selected @endif value="between 200000 and 500000">
                                     200,000 - 500,000 VND</option>
-                                <option @if ($priceFilter == "between 500000 and 800000") selected @endif value="between 500000 and 800000">
+                                <option @if ($priceFilter == 'between 500000 and 800000') selected @endif value="between 500000 and 800000">
                                     500,000 - 800,000 VND</option>
-                                <option @if ($priceFilter == "between 800000 and 1000000") selected @endif value="between 800000 and 1000000">
+                                <option @if ($priceFilter == 'between 800000 and 1000000') selected @endif
+                                    value="between 800000 and 1000000">
                                     800,000 - 1,000,000 VND</option>
-                                <option @if ($priceFilter == "> 1000000") selected @endif value="> 1000000">
+                                <option @if ($priceFilter == '> 1000000') selected @endif value="> 1000000">
                                     > 1,000,000 VND</option>
                             </select>
                             <select name="order" id="order" class="filter">
-                                <option @if ($orderFilter == "ASC"|| $orderFilter == null) selected @endif value="ASC">ASC</option>
-                                <option @if ($orderFilter == "DESC") selected @endif value="DESC">DESC</option>
+                                <option @if ($orderFilter == 'ASC' || $orderFilter == null) selected @endif value="ASC">ASC</option>
+                                <option @if ($orderFilter == 'DESC') selected @endif value="DESC">DESC</option>
                             </select>
                         </div>
                     </form>
@@ -122,30 +123,22 @@
             <div class="row">
                 @foreach ($data as $item)
                     <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="{{ route('user_product-single', ['id' => $item->id]) }}"><i
-                                                    class="fa fa-eye"></i></a></li>
-                                        <li><a href="{{ route('user_product-single', ['id' => $item->id]) }}"><i
-                                                    class="fa fa-star"></i></a></li>
-                                        <li><a href="{{ route('user_product-single', ['id' => $item->id]) }}"><i
-                                                    class="fa fa-shopping-cart"></i></a></li>
+                        <a href="{{ route('user_product-single', ['id' => $item->id]) }}">
+                            <div class="item">
+                                <div class="thumb">
+                                    <img width="100%" src="{{ $item->thumbnail }}" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>{{ $item->title }}</h4>
+                                    <span>VND {{ number_format($item->price, 0) }}</span>
+                                    <ul class="stars">
+                                        <?php
+                                        echo str_repeat('<li><i class="fa fa-star"></i></li>', $item->rating);
+                                        ?>
                                     </ul>
                                 </div>
-                                <img width="100%" src="{{ $item->thumbnail }}" alt="">
                             </div>
-                            <div class="down-content">
-                                <h4>{{ $item->title }}</h4>
-                                <span>VND {{ number_format($item->price, 0) }}</span>
-                                <ul class="stars">
-                                    <?php
-                                    echo str_repeat('<li><i class="fa fa-star"></i></li>', $item->rating);
-                                    ?>
-                                </ul>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
                 <div class="col-lg-12">
