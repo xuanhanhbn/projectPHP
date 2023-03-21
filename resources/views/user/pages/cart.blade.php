@@ -34,7 +34,7 @@
         <section class="shoping-cart spad">
             <div class="container">
                 <div class="row">
-                    <form method="POST" action="{{ route('payment') }}">
+                    <form>
                         @csrf
                         <div class="row" style="flex-direction: row">
                             <div class="col-lg-6">
@@ -52,9 +52,10 @@
                                                 style="font-size: 30px; color: #000000">{{ number_format($total, 0) }}</span>
                                         </li>
                                     </ul>
-                                    <a href="#" class="primary-btn cart-btn cart-btn-right">
-                                        Upadate Cart</a>
-                                    <button class="primary-btn" id="checkoutBtn"
+                                    <button class="primary-btn cart-btn cart-btn-right" style="border: none"
+                                        formaction="{{ route('user_cart.update') }}" formmethod="POST">Upadate Cart</button>
+                                    <button class="primary-btn" id="checkoutBtn" formaction="{{ route('payment') }}"
+                                        formmethod="POST"
                                         style="border: none; opacity: @if ($total <= 0) 0.5 @else 1 @endif"
                                         @if ($total <= 0) disabled @endif>PROCEED TO CHECKOUT</button>
 
@@ -75,7 +76,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($cart as $product)
-                                            <input type='hidden' name="cart[{{ $loop->index }}]['id']"
+                                            <input type='hidden' name="cart[{{ $loop->index }}][id]"
                                                 value='{{ $product->id }}'>
                                             <tr>
                                                 <td class="shoping__cart__item">
@@ -89,7 +90,7 @@
                                                     <div class="quantity buttons_added">
                                                         <input type="button" value="-" class="minus">
                                                         <input type="number" step="1" min="0" max=""
-                                                            name="cart[{{ $loop->index }}]['quantity']"
+                                                            name="cart[{{ $loop->index }}][quantity]"
                                                             value="{{ $product->quantity }}" title="Qty"
                                                             class="input-text qty text" size="4" pattern=""
                                                             inputmode=""

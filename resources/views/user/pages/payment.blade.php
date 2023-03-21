@@ -26,7 +26,7 @@
     <div class="container">
         <div class="sub-body">
             <div class="header-pay">
-                <h1 class="price"><span class="price__dollar">$</span>15.00<span class="price__time">/ mo</span></h1>
+                <h1 class="price"><span class="price__dollar">VND</span>{{number_format($total, 0)}}</h1>
                 
             </div>
 

@@ -60,8 +60,16 @@ class ProductController extends Controller
     public function indexSingle($id)
     {
         $item = Product::where('id', $id)->first();
+        $relatedCategoryItems = $item->Category->Products->where("id","!=",$item->id);
+        $relatedRecipientItems = $item->Recipient->Products->where("id","!=",$item->id);
+        $userId = Auth::user()->id;
+        $liked = Likeproduct::where('user_id', '=', $userId)
+        ->where('product_id', '=', $id)->first();
         return view("user.pages.single-product", [
-            "item" => $item
+            "item" => $item,
+            "isLikedByUser" => $liked != null,
+            "relatedCategoryItems" => $relatedCategoryItems,
+            "relatedRecipientItems" => $relatedRecipientItems,
         ]);
     }
     // add product form products page to cart
@@ -114,5 +122,7 @@ class ProductController extends Controller
                 "product_id" => $productId,
             ]);
         }
+        return redirect()->route("user_product-single",["id" => $productId]);
+        
     }
 }
