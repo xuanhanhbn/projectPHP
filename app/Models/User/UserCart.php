@@ -19,7 +19,7 @@ class UserCart extends Model
         return $this->belongsTo(User::class);
     }
     public function Product(){
-        return $this->hasOne(Product::class,"id");
+        return $this->hasOne(Product::class,"id","product_id");
     }
 
 }

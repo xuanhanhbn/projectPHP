@@ -14,12 +14,15 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            "title"=>$this->faker->title,
-            "price"=>random_int(1000,1000000),
-            "in_stock"=>random_int(0,500),
-            "sold"=>random_int(0,500),
+            "title"=>$this->faker->sentence($nbWords = 3, $variableNbWords = true),
+            "price"=>$this->faker->numberBetween($min = 100, $max = 900)*1000,
+            "in_stock"=>random_int(0,100),
+            "sold"=>random_int(0,100),
             "thumbnail"=>$this->faker->imageUrl(),
-            "category_id"=> random_int(1,10)
+            "category_id"=> random_int(1,3),
+            "recipient_id"=> random_int(1,5),
+            "rating" => random_int(1,5)
+
         ];
     }
 }

@@ -10,25 +10,45 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $userId = Auth::user()->id;
         $cart = UserCart::where('user_id', $userId)->get();
-        return view("user.pages.cart",[
-            "cart" => $cart
+        $total = 0;
+        foreach ($cart as $item) {
+            if ($item->Product != null) {
+                $total += $item->quantity * $item->Product->price;
+            }
+        }
+        return view("user.pages.cart", [
+            "cart" => $cart,
+            "total" => $total
         ]);
     }
-    public function add(Request $request){
-        $productId = $request -> productId;
-        $quantity = $request -> quantity;
+    public function add(Request $request)
+    {
+        $productId = $request->productId;
+        $quantity = $request->quantity;
         $userId = Auth::user()->id;
-        if($productId != null && $quantity != null){
-            UserCart::create([
-                "quantity" => $quantity,
-                "user_id" => $userId,
-                "product_id" => $productId,
-            ]);
+        if ($productId != null && $quantity != null) {
+            $cartItem = UserCart::where("product_id", "=", $productId)-> first();
+            if($cartItem){
+                $cartItem -> quantity += $quantity;
+                $cartItem->save();
+            }else{
+                UserCart::create([
+                    "quantity" => $quantity,
+                    "user_id" => $userId,
+                    "product_id" => $productId,
+                ]);
+            }
         }
-        $this->index();
+        return redirect()->route('user_cart');
+    }
+
+    public function checkout(Request $request)
+    {
+        dd($request);
     }
 
     public function payment() {
