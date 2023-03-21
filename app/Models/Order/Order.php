@@ -16,7 +16,8 @@ class Order extends Model
         "payment_type",
         "payment_status",
         "shipping_address",
-        "receiver_contact"
+        "receiver_contact",
+        "user_id"
     ];
 
     public function User(){

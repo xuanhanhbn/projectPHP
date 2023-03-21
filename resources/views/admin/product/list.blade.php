@@ -22,6 +22,9 @@
     .mr-5 {
         margin-right: 5px;
     }
+    .table td, .table th {
+        white-space: inherit
+    }
 </style>
 
 @endsection
