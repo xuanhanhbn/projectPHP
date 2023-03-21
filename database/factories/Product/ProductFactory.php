@@ -21,8 +21,8 @@ class ProductFactory extends Factory
             "thumbnail"=>$this->faker->imageUrl(),
             "category_id"=> random_int(1,3),
             "recipient_id"=> random_int(1,5),
-            "rating" => random_int(1,5)
-
+            "rating" => random_int(1,5),
+            "description" => $this->faker-> text($maxNbChars = 400)
         ];
     }
 }

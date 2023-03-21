@@ -15,6 +15,10 @@ class CartController extends Controller
         $userId = Auth::user()->id;
         $cart = UserCart::where('user_id', $userId)->get();
         $total = 0;
+        if(count($cart) == 0){
+            return view("user.pages.cartNull");
+        }
+
         foreach ($cart as $item) {
             if ($item->Product != null) {
                 $total += $item->quantity * $item->Product->price;
@@ -45,14 +49,38 @@ class CartController extends Controller
         }
         return redirect()->route('user_cart');
     }
-
-    public function checkout(Request $request)
-    {
-        dd($request);
+    public function update(Request $request){
+        $cart = $request->cart;
+        if(is_array($cart)){
+            foreach($cart as $cartItem){
+                if($cartItem["quantity"] ==0){
+                    UserCart::where("id","=",$cartItem["id"])-> delete();
+                }else{
+                    UserCart::where("id","=",$cartItem["id"])-> update(["quantity" => $cartItem["quantity"]]);
+                }
+            }
+        }
+        return redirect()->route('user_cart');
     }
-
-    public function payment() {
-        return view("user.pages.payment");
+    public function payment(Request $request) {
+        if(is_array($request->cart)){
+            foreach($request->cart as $cartItem){
+                if($cartItem["quantity"] ==0){
+                    UserCart::where("id","=",$cartItem["id"])-> delete();
+                }else{
+                    UserCart::where("id","=",$cartItem["id"])-> update(["quantity" => $cartItem["quantity"]]);
+                }
+            }
+        }
+        $userId = Auth::user()->id;
+        $cart = UserCart::where('user_id', $userId)->get();
+        $total = 0;
+        foreach ($cart as $item) {
+            if ($item->Product != null) {
+                $total += $item->quantity * $item->Product->price;
+            }
+        }
+        return view("user.pages.payment",["total" => $total]);
     }
     
 }

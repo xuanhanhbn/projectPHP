@@ -3,6 +3,7 @@
 namespace App\Models\Product;
 
 use App\Models\Category\Category;
+use App\Models\Category\Recipient;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,6 +34,9 @@ class Product extends Model
 
     public function Category(){
         return $this -> belongsTo(Category::class);
+    }
+    public function Recipient(){
+        return $this -> belongsTo(Recipient::class);
     }
     
     public function scopeSearch($query,$search){
