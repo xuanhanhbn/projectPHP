@@ -16,7 +16,15 @@ class InitialMigration extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string("title")->unique();
+            $table->string("key")->unique();
             $table->string("image")->nullable();
+            $table->string("description")->nullable();
+            $table->timestamps();
+        });
+        Schema::create('recipients', function (Blueprint $table) {
+            $table->id();
+            $table->string("title")->unique();
+            $table->string("key")->unique();
             $table->string("description")->nullable();
             $table->timestamps();
         });
@@ -31,8 +39,10 @@ class InitialMigration extends Migration
             $table->unsignedInteger("comment")->default(0);
             $table->string("thumbnail")->nullable();
             $table->unsignedBigInteger("category_id");
+            $table->unsignedBigInteger("recipient_id");
             $table->timestamps();
             $table->foreign("category_id")->references("id")->on("categories");
+            $table->foreign("recipient_id")->references("id")->on("recipients");
         });
         Schema::create('productImages', function (Blueprint $table) {
             $table->id();

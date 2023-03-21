@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         // $admin = User::create([
         //     'phone' => "0123456789",
         //     'email' => "admin@localhost",
@@ -24,14 +23,74 @@ class DatabaseSeeder extends Seeder
         //     'firstname' => "Admin",
         //     'lastname' => "System"
         // ]);
+        // $user = User::create([
+        //     'phone' => "0987654321",
+        //     'email' => "user@localhost",
+        //     'password' => Hash::make("user"),
+        //     'firstname' => "User",
+        //     'lastname' => "Local"
+        // ]);
         // Role::create([
         //     "user_id"=>$admin->id,
         //     "role"=>"ADMIN"
         // ]);
+        // Role::create([
+        //     "user_id"=>$user->id,
+        //     "role"=>"USER"
+        // ]);
+        // $categories = [
+        //     [
+        //         'title' => 'Chocolate Gifts',
+        //         'key' => 'chocolate',
+        //         'image' => '',
+        //         'description' => ''
+        //     ],
+        //     [
+        //         'title' => 'Flowers Gifts',
+        //         'key' => 'flower',
+        //         'image' => '',
+        //         'description' => ''
+        //     ],
+        //     [
+        //         'title' => 'Candle Gift Sets',
+        //         'key' => 'candle',
+        //         'image' => '',
+        //         'description' => ''
+        //     ],
+        // ];
+        // collect($categories)->each(function ($category) {
+        //     \App\Models\Category\Category::create($category); });
 
-        // \App\Models\Category\Category::factory(10)->create();
-        //\App\Models\Product\Product::factory(50)->create();
-        //\App\Models\Product\ProductRating::factory(100)->create();
-        \App\Models\Product\ProductImage::factory(200)->create();
+        // $recipients = [
+        //     [
+        //         'title' => 'Gifts For Men',
+        //         'key' => 'men',
+        //         'description' => ''
+        //     ],
+        //     [
+        //         'title' => 'Gifts For Women',
+        //         'key' => 'women',
+        //         'description' => ''
+        //     ],
+        //     [
+        //         'title' => 'Gifts For Kids',
+        //         'key' => 'kid',
+        //         'description' => ''
+        //     ],
+        //     [
+        //         'title' => 'Gifts For Colleagues',
+        //         'key' => 'colleague',
+        //         'description' => ''
+        //     ],
+        //     [
+        //         'title' => 'Gifts For Family',
+        //         'key' => 'family',
+        //         'description' => ''
+        //     ]
+        // ];
+        // collect($recipients)->each(function ($recipient) {
+        //     \App\Models\Category\Recipient::create($recipient); });
+
+        \App\Models\Product\Product::factory(50)->create();
     }
 }
