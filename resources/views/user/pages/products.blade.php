@@ -48,9 +48,9 @@
     <!-- ***** Preloader End ***** -->
 
 
-    <!-- ***** Header Area Start ***** -->
-    {{-- @include('user.layouts.navbars.guest.topnav') --}}
-    <!-- ***** Header Area End ***** -->
+<!-- ***** Header Area Start ***** -->
+{{-- @include('user.layouts.navbars.guest.topnav') --}}
+<!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="page-heading" id="top" style="background-image: none">
