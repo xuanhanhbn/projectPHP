@@ -46,6 +46,11 @@ class CartController extends Controller
         return redirect()->route('user_cart');
     }
 
+    public function checkout(Request $request)
+    {
+        dd($request);
+    }
+
     public function payment() {
         return view("user.pages.payment");
     }

@@ -69,6 +69,130 @@
             margin-left: 12px;
         }
 
+		.nav .search button {
+			border: none;
+		}
+
+        
+        
+    </style>
+<!-- add to cart  -->
+<style>
+
+
+.cart-button {
+    margin-left: 30px;
+	position: relative;
+	padding: 10px;
+	width: 150px;
+	height: 50px;
+	border: 1px solid;
+	border-radius: 10px;
+	background-color: #fff;
+	outline: none;
+	cursor: pointer;
+	color: black;
+	transition: .3s ease-in-out;
+	overflow: hidden;
+}
+
+.cart-button:active {
+	transform: scale(.9);
+}
+
+.cart-button .fa-shopping-cart {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: -15%;
+	font-size: 2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button .fa-box {
+	position: absolute;
+	z-index: 3;
+	top: -20%;
+	left: 52%;
+	font-size: 1.2em;
+	transform: translate(-50%,-50%);
+}
+
+.add_to_cart,
+.added {
+    margin-top: 0px !important;
+    color: black !important;
+}
+.cart-button span {
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	top: 50%;
+	font-size: 1.2em;
+	color: #fff;
+	transform: translate(-50%,-50%);
+}
+.cart-button span.add_to_cart {
+	opacity: 1;
+}
+.cart-button span.added {
+	opacity: 0;
+}
+
+.cart-button.clicked .fa-shopping-cart {
+	animation: cart 1.5s ease-in-out forwards;
+}
+.cart-button.clicked .fa-box {
+	animation: box 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.add_to_cart {
+	animation: txt1 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.added {
+	animation: txt2 1.5s ease-in-out forwards;
+}
+@keyframes cart {
+	0% {
+		left: -10%;
+	}
+	40%, 60% {
+		left: 50%;
+	}
+	100% {
+		left: 115%;
+	}
+}
+@keyframes box {
+	0%, 40% {
+		top: -20%;
+	}
+	60% {
+		top: 40%;
+		left: 52%;
+	}
+	100% {
+		top: 40%;
+		left: 115%;
+	}
+}
+@keyframes txt1 {
+	0% {
+		opacity: 1;
+	}
+	20%, 100% {
+		opacity: 0;
+	}
+}
+@keyframes txt2 {
+	0%, 80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
         .main-banner .left-content .inner-content {
             top: 70%;
             left: 38%;
@@ -207,6 +331,7 @@
             transform: translateY(30px);
             transition: visibility 0.3s, opacity 0.3s ease, height 0.3s ease 0.3s, transform 0.2s ease 0.2s;
             visibility: hidden;
+            display: none;
         }
 
         .select-body__content.is-active {
@@ -215,6 +340,7 @@
             transform: none;
             transition: visibility 0.3s, opacity 0.3s ease, height 0.3s ease 0.3s, transform 0.2s ease;
             visibility: visible;
+            display: block;
         }
 
         .select-body__content.is-active.select-body--paypal {
@@ -250,7 +376,7 @@
             padding: 18px;
             width: 315px;
         }
-    </style>
+</style>
 
     <!-- liked-products -->
 
