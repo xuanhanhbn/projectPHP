@@ -13,7 +13,7 @@
                                     <p class="mb-0">Set a new password for your email</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="{{ route('admin_change-password.perform') }}">
+                                    <form role="form" method="POST" action="{{ route('admin.change-password.perform') }}">
                                         @csrf
 
                                         <div class="flex flex-col mb-3">

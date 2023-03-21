@@ -34,7 +34,7 @@ class Product extends Model
     public function Category(){
         return $this -> belongsTo(Category::class);
     }
-
+    
     public function scopeSearch($query,$search){
         if($search && $search != ""){
             return $query->where("title","like","%$search%")

@@ -4,17 +4,12 @@
     @include('admin.layouts.navbars.auth.topnav', ['title' => 'User Management'])
     <div class="row mt-4 mx-4">
         <div class="col-12">
-            <div class="alert alert-light" role="alert">
-                This feature is available in <strong>Argon Dashboard 2 Pro Laravel</strong>. Check it
-                <strong>
-                    <a href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
-                        here
-                    </a>
-                </strong>
-            </div>
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Users</h6>
+                    <div class="d-flex align-items-center">
+                        <h4>Users</h4>
+                        <a class="btn btn-primary btn-sm ms-auto" href="{{route("admin.user_management.create")}}">Create new account</a>
+                    </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">

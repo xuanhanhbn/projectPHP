@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(["auth", "admin"])->prefix("admin")->group(function () {
-    include_once("admin.php");
-});
-Route::prefix('/')->group(function () {
-    include_once("user.php");
+Route::group([], function () {
     include_once("public.php");
+});
+Route::group(["middleware"=>["auth"]], function () {
+    include_once("user.php");
+});
+
+Route::group(["middleware"=>["auth","admin"], "prefix" => "admin", "as" => "admin."], function () {
+    include_once("admin.php");
 });

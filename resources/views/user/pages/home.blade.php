@@ -5,102 +5,16 @@
     <div class="main-banner" id="top">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="left-content">
+                <div class="col-lg-12">
+                    <div class="right-content">
                         <div class="thumb">
                             <div class="inner-content">
                                 <h4>We Are Arts Shop</h4>
                                 <div class="main-border-button">
-                                    <a href="#">Purchase Now!</a>
+                                    <a href="{{route("user_product-listing")}}">Purchase Now!</a>
                                 </div>
                             </div>
                             <img src="user/assets/images/banner-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="right-content">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
-                                            <h4>Women</h4>
-                                            <span>Best Gifts For Women</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Women</h4>
-                                                <p>Try our LIMITED EDITION Gift Sets For Women!</p>
-                                                <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="user/assets/images/baner-right-image-01.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
-                                            <h4>Men</h4>
-                                            <span>Best Gifts For Men</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Men</h4>
-                                                <p>Try our LIMITED EDITION Gift Sets For Women!</p>
-                                                <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="user/assets/images/baner-right-image-02.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
-                                            <h4>Kids</h4>
-                                            <span>Best Gifts For Kids</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Kids</h4>
-                                                <p>Try our LIMITED EDITION Gift Basket For Kids!</p>
-                                                <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="user/assets/images/baner-right-image-03.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="right-first-image">
-                                    <div class="thumb">
-                                        <div class="inner-content">
-                                            <h4>Combo Gift Box</h4>
-                                            <span>Best Trend Gift Box</span>
-                                        </div>
-                                        <div class="hover-content">
-                                            <div class="inner">
-                                                <h4>Gift Box</h4>
-                                                <p>A pretty gift box to brighten someone's day. ❤️</p>
-                                                <div class="main-border-button">
-                                                    <a href="#">Discover More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="user/assets/images/baner-right-image-04.jpg">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,16 +44,16 @@
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="{{url("product",["product"=>$item->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="{{route("user_product-single",["id" => $product->id])}}"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="{{route("user_product-single",["id" => $product->id])}}"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="{{route("user_product-single",["id" => $product->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <img src="{{$product->thumbnail}}" alt="">
                                     </div>
                                     <div class="down-content">
                                         <h4>{{$product->title}}</h4>
-                                        <span>{{$product->price}}</span>
+                                        <span>VND {{number_format($product->price, 0)}}</span>
                                         <ul class="stars">
                                             <li><i class="fa fa-star"></i></li>
                                             <li><i class="fa fa-star"></i></li>
