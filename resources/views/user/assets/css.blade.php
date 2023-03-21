@@ -313,6 +313,7 @@
             transform: translateY(30px);
             transition: visibility 0.3s, opacity 0.3s ease, height 0.3s ease 0.3s, transform 0.2s ease 0.2s;
             visibility: hidden;
+            display: none;
         }
 
         .select-body__content.is-active {
@@ -321,6 +322,7 @@
             transform: none;
             transition: visibility 0.3s, opacity 0.3s ease, height 0.3s ease 0.3s, transform 0.2s ease;
             visibility: visible;
+            display: block;
         }
 
         .select-body__content.is-active.select-body--paypal {
