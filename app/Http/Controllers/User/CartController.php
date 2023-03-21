@@ -51,4 +51,8 @@ class CartController extends Controller
         dd($request);
     }
 
+    public function payment() {
+        return view("user.pages.payment");
+    }
+    
 }
