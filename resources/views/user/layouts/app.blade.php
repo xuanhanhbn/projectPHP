@@ -37,6 +37,7 @@
 
     <!-- script -->
     @include('user.assets.js')
+
     @yield('custom_js')
     <!-- jQuery -->
 </body>

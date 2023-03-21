@@ -49,5 +49,8 @@ class Product extends Model
         }
         return $query;
     }
+    public function productImage($id){
+        return $this ->hasOne(ProductImage::class)->where("product_id",$id);
+    }
 
 }

@@ -7,7 +7,10 @@ use App\Models\Category\Category;
 use App\Models\Category\Recipient;
 use App\Models\Product\Product;
 use App\Models\User\Role;
+use App\Models\User\Likeproduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -60,5 +63,56 @@ class ProductController extends Controller
         return view("user.pages.single-product", [
             "item" => $item
         ]);
+    }
+    // add product form products page to cart
+    public function AddToCart($id)
+    {
+        $product = Product::find($id);
+        $cart = session()->get('cart');
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+        } else {
+            $cart[$id] = [
+                'name' => $product->title,
+                'price' => $product->price,
+                'quantity' => 1,
+                "thumbnail" => $product->thumbnail,
+            ];
+
+        }
+        session()->put('cart', $cart);
+        return response()->json([
+            'code' => 200,
+            "message" => 'ok'
+        ], 200);
+    }
+    // // search name
+    // public function Search(Request $request)
+    // {
+    //     $data = Product::where('title', 'like', '%' . $request->input('query') . '%')->get();
+    //     return view('user.pages.search', ['products' => $data]);
+    // }
+
+    public function liked()
+    {
+        return view('user.pages.likeproducts');
+    }
+
+    public function like(Request $request)
+    {
+        $productId = $request->productId;
+        $userId = Auth::user()->id;
+
+        $liked = Likeproduct::where('user_id', '=', $userId)
+            ->where('product_id', '=', $productId)->first();
+            
+        if ($liked) {
+            $liked->delete();
+        } else {
+            Likeproduct::create([
+                "user_id" => $userId,
+                "product_id" => $productId,
+            ]);
+        }
     }
 }

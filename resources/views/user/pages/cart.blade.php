@@ -34,7 +34,7 @@
         <section class="shoping-cart spad">
             <div class="container">
                 <div class="row">
-                    <form method="POST" action="{{ route('user_cart.checkout') }}">
+                    <form method="POST" action="{{ route('payment') }}">
                         @csrf
                         <div class="row" style="flex-direction: row">
                             <div class="col-lg-6">
