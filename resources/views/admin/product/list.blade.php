@@ -63,7 +63,7 @@
                                 <th style="width: 10px">#</th>
                                 <th>Title</th>
                                 <th>Thumbnail</th>
-                                <th>Description</th>
+{{--                                <th>Description</th>--}}
                                 <th>Price</th>
                                 <th style="width: 40px">Action</th>
                             </tr>
@@ -74,7 +74,7 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->title}}</td>
                                 <td><img width="75" src="{{$item->thumbnail}}" /></td>
-                                <td>{{$item->description}}</td>
+{{--                                <td>{{$item->description}}</td>--}}
                                 <td>{{$item->price}}</td>
                                 <td class="d-flex">
                                     <a href="{{url("admin/product/edit",["product"=>$item->id])}}" class="btn btn-outline-info mr-5">Edit</a>
