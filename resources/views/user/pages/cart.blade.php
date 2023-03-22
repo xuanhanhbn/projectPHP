@@ -54,9 +54,9 @@
                                     </ul>
                                     <button class="primary-btn cart-btn cart-btn-right" style="border: none"
                                         formaction="{{ route('user_cart.update') }}" formmethod="POST">Upadate Cart</button>
-                                    <button class="primary-btn" id="checkoutBtn" formaction="{{ route('payment') }}"
-                                        formmethod="GET"
-                                        style=" background:#0a0c0d;border: none; opacity: @if ($total <= 0) 0.5 @else 1 @endif"
+                                    <button class="primary-btn" id="checkoutBtn" formaction="{{ route('transaction') }}"
+                                        formmethod="POST"
+                                        style="border: none; opacity: @if ($total <= 0) 0.5 @else 1 @endif"
                                         @if ($total <= 0) disabled @endif>PROCEED TO CHECKOUT</button>
 
                                 </div>
