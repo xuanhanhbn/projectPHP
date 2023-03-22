@@ -13,8 +13,6 @@
 @endsection
 @section('custom_css')
     <style>
-        #search {}
-
         #search:focus {
             outline: none;
             border: none;

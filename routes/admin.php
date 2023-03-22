@@ -24,3 +24,9 @@ Route::prefix('categories')->group(function (){
     Route::post("edit/{id}",[App\Http\Controllers\Admin\CategoriesMangementController::class,"update"]);
     Route::post("delete/{category}",[App\Http\Controllers\Admin\CategoriesMangementController::class,"delete"]);
 });
+
+Route::prefix('order')->group(function (){
+    Route::get('list',[App\Http\Controllers\Admin\OrderController::class, "listAll"])->name("order.list");
+    Route::get("edit/{id}",[App\Http\Controllers\Admin\OrderController::class,"edit"]);
+    Route::post("edit/{id}",[App\Http\Controllers\Admin\OrderController::class,"update"]);
+});
