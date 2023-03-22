@@ -25,9 +25,9 @@ class OrderController extends Controller
 
     public function update(Order $order, Request $request)
     {
-        // $order->update([
-        //     'order_status' => $request->get('order_status')
-        // ]);
+        $order->update([
+            'order_status' => $request->get('order_status')
+        ]);
         return redirect(route('admin.order.list')) ;
     }
 }
