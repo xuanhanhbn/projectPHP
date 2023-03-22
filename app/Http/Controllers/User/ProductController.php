@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category\Category;
 use App\Models\Category\Recipient;
 use App\Models\Product\Product;
+use App\Models\Product\ProductRating;
 use App\Models\User\Role;
 use App\Models\User\Likeproduct;
 use Illuminate\Http\Request;
@@ -60,14 +61,13 @@ class ProductController extends Controller
     public function indexSingle($id)
     {
         $item = Product::where('id', $id)->first();
-        $relatedCategoryItems = $item->Category->Products->where("id","!=",$item->id);
-        $relatedRecipientItems = $item->Recipient->Products->where("id","!=",$item->id);
+        $relatedCategoryItems = $item->Category->Products->where("id", "!=", $item->id);
+        $relatedRecipientItems = $item->Recipient->Products->where("id", "!=", $item->id);
         $liked = null;
-        if(Auth::check())
-        {
+        if (Auth::check()) {
             $userId = Auth::user()->id;
             $liked = Likeproduct::where('user_id', '=', $userId)
-            ->where('product_id', '=', $id)->first();
+                ->where('product_id', '=', $id)->first();
         }
         return view("user.pages.single-product", [
             "item" => $item,
@@ -109,7 +109,7 @@ class ProductController extends Controller
     {
         $userId = Auth::user()->id;
         $liked = Likeproduct::where('user_id', '=', $userId)->get();
-        return view('user.pages.likeproducts',["likeProducts" => $liked]);
+        return view('user.pages.likeproducts', ["likeProducts" => $liked]);
     }
 
     public function like(Request $request)
@@ -128,7 +128,28 @@ class ProductController extends Controller
                 "product_id" => $productId,
             ]);
         }
-        return redirect()->route("user_product-single",["id" => $productId]);
+        return redirect()->route("user_product-single", ["id" => $productId]);
 
+    }
+
+    public function comment(Request $request, $product_id)
+    {
+        $user_id = Auth::user()->id;
+        ProductRating::create([
+            "rate" => $request->rate,
+            "comment" => $request->comment,
+            "product_id" => $product_id,
+            "user_id" => $user_id
+        ]);
+        $product = Product::where("id", "=", $product_id)->first();
+        $productRatings = ProductRating::where("id", "=", $product_id)->get();
+        $totalRating = 0;
+        foreach ($productRatings as $rating) {
+            $totalRating += $rating->rate;
+        }
+        $product->comment = $productRatings->count();
+        $product->rating = round($totalRating / $productRatings->count());
+        $product->save();
+        return redirect(route("user_product-single", ["id" => $product_id]));
     }
 }

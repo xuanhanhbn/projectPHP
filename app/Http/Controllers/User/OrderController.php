@@ -18,4 +18,14 @@ class OrderController extends Controller
         $order = Order::where("id", "=", $order_id)->where("user_id","=", Auth::user()->id)->first();
         return view("user.pages.order",["order" => $order]);
     }
+    public function complete(Request $request){
+        $order = Order::where("id","=",$request->order_id)->first();
+        if($order != null){
+            $order->order_status="Succeed";
+            $order->payment_status=true;
+            $order->save();
+        }
+        return redirect(route("user_order", ["order_id" => $request->order_id]));
+
+    }
 }

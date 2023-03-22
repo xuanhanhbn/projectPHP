@@ -62,8 +62,8 @@ class InitialMigration extends Migration
         Schema::create('orders', function (Blueprint $table){
             $table->id();
             $table->enum("order_status",["Prepared","Sent","Shipped","Received","Succeed","Declined","Refunded","Exchanged"]);
-            $table-> decimal("total")->default(0);
-            $table->enum("payment_type",["Cod","Credit","Banking"]);
+            $table-> unsignedDecimal("total",10 ,0)->default(0);
+            $table->enum("payment_type",["Cod","Paypal"]);
             $table->boolean("payment_status")->default(false);
             $table->string("shipping_address");
             $table->string("receiver_contact");
@@ -74,7 +74,7 @@ class InitialMigration extends Migration
         Schema::create('subOrders', function (Blueprint $table){
             $table->id();
             $table->unsignedInteger("quantity")->default(1);
-            $table->unsignedDecimal("sub_total");
+            $table->unsignedDecimal("sub_total",10 ,0);
             $table->enum("status",["pending","succeeded","declined","exchanged","refunded"]);
             $table->timestamps();
             $table->unsignedBigInteger("product_id");
