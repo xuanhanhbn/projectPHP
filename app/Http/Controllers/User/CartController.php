@@ -80,7 +80,7 @@ class CartController extends Controller
                 $total += $item->quantity * $item->Product->price;
             }
         }
-        return view("user.pages.payment",["total" => $total]);
+        return view("user.pages.payment",["total" => $total,"cart" =>$cart]);
     }
-    
+
 }
