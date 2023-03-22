@@ -131,4 +131,6 @@ class ProductController extends Controller
         return redirect()->route("user_product-single",["id" => $productId]);
 
     }
+
+
 }
