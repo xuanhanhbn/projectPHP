@@ -1,5 +1,34 @@
 @extends('admin.layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
+@section('custom_css')
+<style>
+    ul{
+        list-style: none;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    }
+    ul>li{
+        margin-left: 20px;
+    }
+    .icon-look{
+        padding-top: 16px;
+        margin-left: 20px;
+    }
+    .mr-20 {
+        margin-right: 20px;
+    }
+    .mr-5 {
+        margin-right: 5px;
+    }
+    .table td, .table th {
+        white-space: inherit
+    }
+</style>
+
+@endsection
+
 @section('content')
     @include('admin.layouts.navbars.auth.topnav', ['title' => 'List Product'])
     <div class="container-fluid py-4">
@@ -35,7 +64,7 @@
                                 <th style="width: 10px">#</th>
                                 <th>Title</th>
                                 <th>Thumbnail</th>
-                                <th>Description</th>
+{{--                                <th>Description</th>--}}
                                 <th>Price</th>
                                 <th>Stock</th>
                                 <th>Sold</th>

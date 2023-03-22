@@ -23,14 +23,15 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="{{route("user_about")}}">About Us</a></li>
-                            <li><a href="{{route("user_product-listing")}}">Products</a></li>
+                            <li><a href="{{route("user_product-listing")}}">Our Products</a></li>
                             <li><a href="{{route("user_contact")}}">Contact Us</a></li>
                             <li class="submenu">
                                 <a href="javascript:;"><i class="fa-solid fa-user fa-xl"></i> {{Auth::user()->lastname}}</a>
                                 <ul>
                                     <li><a href="{{route("user_cart")}}"><i class="fa-solid fa-cart-shopping fa-xm"></i> Shopping Cart</a></li>
                                     <li><a href="{{route('liked-product')}}"><i class="fa fa-heart"></i> Liked Products</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-user fa-xm"></i> Profile</a></li>
+                                    <li><a href="{{route('user_order-listing')}}"><i class="fa-solid fa-receipt"></i> My Orders</a></li>
+                                    {{-- <li><a href="#"><i class="fa-solid fa-user fa-xm"></i> Profile</a></li> --}}
                                     <li>
                                         <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                                             @csrf

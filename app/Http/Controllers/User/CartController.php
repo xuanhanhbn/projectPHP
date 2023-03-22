@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order\Order;
+use App\Models\Order\SubOrder;
 use App\Models\Product\Product;
 use App\Models\User\UserCart;
 use Illuminate\Http\Request;
@@ -80,7 +82,33 @@ class CartController extends Controller
                 $total += $item->quantity * $item->Product->price;
             }
         }
-        return view("user.pages.payment",["total" => $total]);
+        return view("user.pages.payment",["total" => $total,"cart" =>$cart]);
     }
-    
+    public function transaction(Request $request){
+        $userId = Auth::user()->id;
+        $cart = UserCart::where('user_id', $userId)->get();
+        $total = 0;
+        foreach($cart as $cartItem){
+            $total += $cartItem-> quantity * $cartItem->Product->price;
+        }
+        $order = Order::create([
+            "order_status" => "Prepared",
+            "total"=>$total,
+            "payment_type"=>"Cod",
+            "shipping_address" => Auth::user()->address,
+            "receiver_contact" => Auth::user()->phone,
+            "user_id" => Auth::user()->id,
+        ]);
+        foreach($cart as $cartItem){
+            SubOrder::create([
+                "quantity" => $cartItem -> quantity,
+                "sub_total" => $cartItem -> quantity * $cartItem -> Product->price,
+                "status" => "pending",
+                "order_id" => $order -> id,
+                "product_id" => $cartItem->product_id, 
+            ]);
+            $cartItem->delete();
+        }
+        return redirect(route("user_order",["order_id" => $order->id]));
+    }
 }

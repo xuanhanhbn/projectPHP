@@ -4,6 +4,7 @@ namespace App\Models\Order;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product\Product;
 
 class SubOrder extends Model
 {
@@ -13,7 +14,9 @@ class SubOrder extends Model
     protected $fillable = [
         "quantity",
         "sub_total",
-        "status"
+        "status",
+        "order_id",
+        "product_id"
     ];
 
     public function Order(){
@@ -21,6 +24,6 @@ class SubOrder extends Model
     }
 
     public function Product(){
-        return $this -> hasOne(Product::class);
+        return $this -> hasOne(Product::class,"id","product_id");
     }
 }

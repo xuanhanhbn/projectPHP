@@ -16,28 +16,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $admin = User::create([
-        //     'phone' => "0123456789",
-        //     'email' => "admin@localhost",
-        //     'password' => Hash::make("admin"),
-        //     'firstname' => "Admin",
-        //     'lastname' => "System"
-        // ]);
-        // $user = User::create([
-        //     'phone' => "0987654321",
-        //     'email' => "user@localhost",
-        //     'password' => Hash::make("user"),
-        //     'firstname' => "User",
-        //     'lastname' => "Local"
-        // ]);
-        // Role::create([
-        //     "user_id"=>$admin->id,
-        //     "role"=>"ADMIN"
-        // ]);
-        // Role::create([
-        //     "user_id"=>$user->id,
-        //     "role"=>"USER"
-        // ]);
+        $admin = User::create([
+            'phone' => "0123456789",
+            'email' => "admin@localhost",
+            'password' => Hash::make("admin"),
+            'firstname' => "Admin",
+            'lastname' => "System"
+        ]);
+        $user = User::create([
+            'phone' => "0987654321",
+            'email' => "user@localhost",
+            'password' => Hash::make("user"),
+            'firstname' => "User",
+            'lastname' => "Local"
+        ]);
+        Role::create([
+            "user_id"=>$admin->id,
+            "role"=>"ADMIN"
+        ]);
+        Role::create([
+            "user_id"=>$user->id,
+            "role"=>"USER"
+        ]);
         // $categories = [
         //     [
         //         'title' => 'Chocolate Gifts',
@@ -91,6 +91,6 @@ class DatabaseSeeder extends Seeder
         // collect($recipients)->each(function ($recipient) {
         //     \App\Models\Category\Recipient::create($recipient); });
 
-        \App\Models\Product\Product::factory(50)->create();
+        // \App\Models\Product\Product::factory(50)->create();
     }
 }
