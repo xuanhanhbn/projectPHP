@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="shoping__checkout">
-                                    <h5>Cart Total (VND):</h5>
+                                    <h5>Cart Total (USD):</h5>
                                     <ul>
                                         <li>
                                             <span id="total"
@@ -53,8 +53,8 @@
                                         </li>
                                     </ul>
                                     <button class="primary-btn cart-btn cart-btn-right" style="border: none"
-                                        formaction="{{ route('user_cart.update') }}" formmethod="POST">Upadate Cart</button>
-                                    <button class="primary-btn" id="checkoutBtn" formaction="{{ route('transaction') }}"
+                                        formaction="{{ route('user_cart.update') }}" formmethod="POST">Update Cart</button>
+                                    <button class="primary-btn" id="checkoutBtn" formaction="{{ route('payment') }}"
                                         formmethod="POST"
                                         style="border: none; opacity: @if ($total <= 0) 0.5 @else 1 @endif"
                                         @if ($total <= 0) disabled @endif>PROCEED TO CHECKOUT</button>

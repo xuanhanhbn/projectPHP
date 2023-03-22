@@ -6,7 +6,7 @@
             var totalEl = document.getElementById("totalPrice");
             var price = <?php echo $item->price; ?>;
             var totalPrice = qty * price;
-            totalEl.innerText = "Total: VND " + totalPrice.toLocaleString();
+            totalEl.innerText = "Total: USD " + totalPrice.toLocaleString();
         };
         $('.main-carousel').owlCarousel({
             items: 1,
@@ -295,8 +295,8 @@
                     <div class="right-content">
                         <h4 class="item-title">{{ $item->title }}</h4>
                         <div class="price-container">
-                            <span id="price-span">VND {{ number_format($item->price, 0) }}</span>
-                            <span id="sold-span">Sold: {{ $item->sold }}</span>
+                            <span id="price-span">USD {{ number_format($item->price, 0) }}</span>
+                            <span id="sold-span">Sold: {{ $item->sold }} - In Stock: {{ $item->in_stock }}</span>
                         </div>
                         <div class="like-share">
                             <ul class="stars">
@@ -331,18 +331,19 @@
                                 </div>
                                 <div class="right-content">
                                     <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus">
-                                        <input type="number" id="quantity" step="1" min="1" max=""
-                                            name="quantity" value="1" title="Qty" class="input-text qty text"
-                                            size="4" pattern="" inputmode="" onchange="autoCal()">
-                                        <input type="button" value="+" class="plus">
+                                        <input type="button" value="-" class="minus" @if ($item->in_stock == 0) disabled @endif>
+                                        <input type="number" id="quantity" step="1" min="1"
+                                            max="{{ $item->in_stock }}" name="quantity" value="{{$item->in_stock == 0? 0: 1}}" title="Qty"
+                                            class="input-text qty text" size="4" pattern="" inputmode=""
+                                            onchange="autoCal()" @if ($item->in_stock == 0) disabled @endif>
+                                        <input type="button" value="+" class="plus" @if ($item->in_stock == 0) disabled @endif>
                                     </div>
                                 </div>
                             </div>
                             <div class="total">
-                                <h4 id="totalPrice">Total: VND {{ number_format($item->price, 0) }}</h4>
+                                <h4 id="totalPrice">Total: USD {{ number_format($item->price, 0) }}</h4>
                                 <div class="main-border-button">
-                                    <button type="submit">Add To Cart</button>
+                                    <button type="submit" @if ($item->in_stock == 0) disabled @endif>Add To Cart</button>
                                 </div>
                             </div>
                         </form>
@@ -386,7 +387,7 @@
                             <img class="owl-lazy" data-src="{{ $item->thumbnail }}"
                                 data-src-retina="{{ $item->thumbnail }}" alt="">
                             <h5>{{ $item->title }}</h5>
-                            <span>VND {{ number_format($item->price, 0) }}</span>
+                            <span>USD {{ number_format($item->price, 0) }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -399,7 +400,7 @@
                             <img class="owl-lazy" data-src="{{ $item->thumbnail }}"
                                 data-src-retina="{{ $item->thumbnail }}" alt="">
                             <h5>{{ $item->title }}</h5>
-                            <span>VND {{ number_format($item->price, 0) }}</span>
+                            <span>USD {{ number_format($item->price, 0) }}</span>
                         </div>
                     @endforeach
                 </div>

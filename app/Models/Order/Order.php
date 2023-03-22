@@ -16,15 +16,18 @@ class Order extends Model
         "payment_type",
         "payment_status",
         "shipping_address",
-        "receiver_contact",
+        "receiver_phone",
+        "receiver_name",
         "user_id"
     ];
 
-    public function User(){
+    public function User()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function SubOrder(){
+    public function SubOrder()
+    {
         return $this->hasMany(SubOrder::class);
     }
 
