@@ -24,56 +24,66 @@
 <!-- ***** Product Area Starts ***** -->
 <section class="section">
     <div class="container">
-        <div class="sub-body">
-            <div class="header-pay">
-                <h1 class="price"><span class="price__dollar">VND</span>{{number_format($total, 0)}}</h1>
-                
-            </div>
-
-            <div class="pay-select">
-                <div class="pay-select__item pay-select--card is-active">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/346994/Card%20Icon.svg" alt="" />
-                    <p>Debit/Credit Card</p>
-                </div>
-
-                <div class="separator"></div>
-
-                <div class="pay-select__item pay-select--paypal">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/346994/Pp%20Icon.svg" alt="" />
-                    <p>PayPal</p>
-                </div>
-            </div>
-
-            <div class="select-body">
-                <div class="select-body__content select-body--card is-active">
-                    <form action="/" method="post" id="cardForm">
-
-                        <label class="form__label" for="card-number">Card Number</label>
-                        <div class="card-input" id="card-number"></div>
-
-                        <label class="form__label" for="expiration-month">Expiration Date</label>
-                        <div class="date__container">
-                            <div class="card-input" id="expiration-month"></div>
-
-                            <div class="card-input" id="expiration-year"></div>
+            <div class="row p-5" style="flex-direction: row">
+                <div class="col-lg-7">
+                    <div>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" >
                         </div>
-
-                        <label class="form__label" for="cvv">CVV</label>
-                        <div class="card-input" id="cvv"></div>
-
-                        <label class="form__label" for="cvv">Billing Zip Code</label>
-                        <div class="card-input" id="postal-code"></div>
-
-                        <input type="submit" value="Subscribe" id="submit" />
-                    </form>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" name="address">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" >Email</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" >Phone Number</label>
+                            <input type="number" class="form-control" name="phone">
+                        </div>
+                    </div>
+                    <button class="primary-btn btn-dark" id="checkoutBtn" formaction="{{ route('payment') }}"
+                            formmethod="POST"
+                            style=" background: #0a0c0d;border: none; opacity: @if ($total <= 0) 0.5 @else 1 @endif"
+                            @if ($total <= 0) disabled @endif>ORDER
+                    </button>
                 </div>
-
-                <div class="select-body__content select-body--paypal">
-                    <script src="https://www.paypalobjects.com/api/button.js?" data-merchant="braintree" data-id="paypal-button" data-button="subscribe" data-color="gold" data-size="medium" data-shape="pill" data-button_type="submit" data-button_disabled="false"></script>
+                <div class="col-lg-5 p-5" style="border: 3px solid">
+                    <div class="">
+                        <p class="font-weight-bold h3 text-dark">YOUR ORDER</p>
+                        <div class="">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">PRODUCTS</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($cart as $product)
+                                    <tr>
+                                        <td >{{ $product->Product ? $product->Product['title'] : '' }}
+                                            <span class="font-weight-bold">x {{ $product->quantity }}</span>
+                                        </td>
+                                        <td>{{ number_format($product->Product ? $product->Product['price'] * $product->quantity : 0, 0) }}</td>
+                                    </tr>
+                                @endforeach
+                                <tr style="border-bottom: 3px solid">
+                                    <th>Cart Total (VND)</th>
+                                    <td name="total">{{ number_format($total, 0) }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input">
+                                <label class="form-check-label font-weight-bold h6" >Payment on delivery</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-        </div>
     </div>
 </section>
 @endsection

@@ -62,12 +62,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 mb-12">
                             <div class="shoping__cart__table">
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="shoping__product">Products</th>
+                                            <th class="shoping__product">PRODUCTS</th>
                                             <th>Price</th>
                                             <th>Quantity</th>
                                             <th>Total</th>
@@ -80,7 +80,7 @@
                                                 value='{{ $product->id }}'>
                                             <tr>
                                                 <td class="shoping__cart__item">
-                                                    <img src="img/cart/cart-2.jpg" alt="">
+                                                    <img style="width: 30%;" src="{{$product->Product ? $product->Product['thumbnail'] : ''}}" alt="">
                                                     <h5>{{ $product->Product ? $product->Product['title'] : '' }}</h5>
                                                 </td>
                                                 <td class="shoping__cart__price" id="price">

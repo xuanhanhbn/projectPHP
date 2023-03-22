@@ -119,7 +119,7 @@ class ProductController extends Controller
 
         $liked = Likeproduct::where('user_id', '=', $userId)
             ->where('product_id', '=', $productId)->first();
-            
+
         if ($liked) {
             $liked->delete();
         } else {
@@ -129,6 +129,6 @@ class ProductController extends Controller
             ]);
         }
         return redirect()->route("user_product-single",["id" => $productId]);
-        
+
     }
 }
