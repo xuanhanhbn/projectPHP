@@ -13,8 +13,6 @@
 @endsection
 @section('custom_css')
     <style>
-        #search {}
-
         #search:focus {
             outline: none;
             border: none;
@@ -93,16 +91,16 @@
                                 <option @if ($categoryFilter == null) selected @endif disabled hidden>Price</option>
                                 <option value="">--None--</option>
                                 <option @if ($priceFilter == '< 200000') selected @endif value="< 200000">
-                                    < 200,000 VND</option>
+                                    < 200,000 USD</option>
                                 <option @if ($priceFilter == 'between 200000 and 500000') selected @endif value="between 200000 and 500000">
-                                    200,000 - 500,000 VND</option>
+                                    200,000 - 500,000 USD</option>
                                 <option @if ($priceFilter == 'between 500000 and 800000') selected @endif value="between 500000 and 800000">
-                                    500,000 - 800,000 VND</option>
+                                    500,000 - 800,000 USD</option>
                                 <option @if ($priceFilter == 'between 800000 and 1000000') selected @endif
                                     value="between 800000 and 1000000">
-                                    800,000 - 1,000,000 VND</option>
+                                    800,000 - 1,000,000 USD</option>
                                 <option @if ($priceFilter == '> 1000000') selected @endif value="> 1000000">
-                                    > 1,000,000 VND</option>
+                                    > 1,000,000 USD</option>
                             </select>
                             <select name="order" id="order" class="filter">
                                 <option @if ($orderFilter == 'ASC' || $orderFilter == null) selected @endif value="ASC">ASC</option>
@@ -130,7 +128,7 @@
                                 </div>
                                 <div class="down-content">
                                     <h4>{{ $item->title }}</h4>
-                                    <span>VND {{ number_format($item->price, 0) }}</span>
+                                    <span>USD {{ number_format($item->price, 0) }}</span>
                                     <ul class="stars">
                                         <?php
                                         echo str_repeat('<li><i class="fa fa-star"></i></li>', $item->rating);

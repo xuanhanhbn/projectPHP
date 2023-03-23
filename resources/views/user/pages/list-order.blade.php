@@ -55,7 +55,7 @@
                                             </td>
                                             <td>
                                                 <div
-                                                    style="display: inline-block; font-weight: 500; padding: 5px 10px; border-radius: 20px; background-color:{{ $order->order_status == 'Succeed' ? 'green' : 'yellow' }}">
+                                                    style="display: inline-block; font-weight: 500; padding: 5px 10px; border-radius: 20px; background-color:{{ $order->order_status == 'Succeed' ? 'lightgreen' : 'yellow' }}">
                                                     {{ $order->order_status }}</div>
                                             </td>
                                             <td class="shoping__cart__price" id="price">
@@ -71,7 +71,7 @@
                                             font-weight: 500;
                                             padding: 5px 10px;
                                             border-radius: 20px;
-                                            background-color:{{ $order->payment_status ? 'green' : 'yellow' }}">
+                                            background-color:{{ $order->payment_status ? 'lightgreen' : 'yellow' }}">
                                                     {{ $order->payment_status ? 'Succeeded' : 'Pending' }}</div>
                                             </td>
                                             <td>

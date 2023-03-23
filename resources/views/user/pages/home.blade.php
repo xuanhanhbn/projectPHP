@@ -48,7 +48,7 @@
                                                 </div>
                                                 <div class="down-content">
                                                     <h4>{{ $product->title }}</h4>
-                                                    <span>VND {{ number_format($product->price, 0) }}</span>
+                                                    <span>USD {{ number_format($product->price, 0) }}</span>
                                                     <ul class="stars">
                                                         <li><i class="fa fa-star"></i></li>
                                                         <li><i class="fa fa-star"></i></li>
