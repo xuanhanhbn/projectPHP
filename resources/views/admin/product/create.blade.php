@@ -17,7 +17,7 @@
                         <h3 class="card-title">Create Product</h3>
                     </div>
                     <div class="card-body" style="padding-top: 0">
-                        <form method="post" action="{{ route("admin.create_product") }}" role="form"
+                        <form method="post" action="{{ route('admin.create_product') }}" role="form"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
@@ -43,6 +43,10 @@
                                     @error('thumbnail')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Display images</label>
+                                    <input class="form-control" type="file" value="" name="images[]" multiple>
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
