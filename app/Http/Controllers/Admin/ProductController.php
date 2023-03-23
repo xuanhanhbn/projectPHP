@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category\Category;
 use App\Models\Category\Recipient;
 use App\Models\Product\Product;
+use App\Models\Product\ProductImage;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class ProductController extends Controller
         $category_id = $request->get("category_id");
         $recipients_id = $request->get('recipients_id');
 
-        $data =  Product::with("Category")
+        $data = Product::with("Category")
             ->Search($search)
             ->CategoryFilter($category_id)
             ->RecipientsFilter($recipients_id)
@@ -40,7 +41,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $recipients = Recipient::all();
 
-        return view("admin.product.create", ["categories"=>$categories,"recipients"=>$recipients]);
+        return view("admin.product.create", ["categories" => $categories, "recipients" => $recipients]);
     }
     public function store(Request $request)
     {
@@ -52,24 +53,22 @@ class ProductController extends Controller
             "recipient_id" => "required",
             "thumbnail" => "nullable|image|mimes:jpg,png,jpeg,gif"
         ], [
-            "required" => "Vui lòng nhập thông tin",
-            "string" => "Phải nhập vào là một chuỗi văn bản",
-            "min" => "Phải nhập :attribute  tối thiểu :min",
-            "mimes" => "Vui lòng nhập đúng định dạng ảnhh"
-        ]);
+                "required" => "Vui lòng nhập thông tin",
+                "string" => "Phải nhập vào là một chuỗi văn bản",
+                "min" => "Phải nhập :attribute  tối thiểu :min",
+                "mimes" => "Vui lòng nhập đúng định dạng ảnhh"
+            ]);
         try {
             $thumbnail = null;
             if ($request->hasFile("thumbnail")) {
                 $file = $request->file("thumbnail");
-                $fileName = time() . $file->getClientOriginalName();
-                //            $ext = $file->getClientOriginalExtension();
-                //            $fileName = time().".".$ext;
+                $fileName = uniqid();
                 $path = public_path("uploads");
                 $file->move($path, $fileName);
                 $thumbnail = "uploads/" . $fileName;
             }
 
-            Product::create([
+            $product = Product::create([
                 "title" => $request->get("title"),
                 "price" => $request->get("price"),
                 "thumbnail" => $thumbnail,
@@ -79,7 +78,18 @@ class ProductController extends Controller
                 "recipient_id" => $request->get("recipient_id"),
 
             ]);
-
+            if (is_array($request->file('images'))) {
+                foreach ($request->file('images') as $img) {
+                    $fileName = uniqid();
+                    $path = public_path("uploads");
+                    $img->move($path, $fileName);
+                    $filePath = "uploads/" . $fileName;
+                    ProductImage::create([
+                        "path" => $filePath,
+                        "product_id" => $product->id,
+                    ]);
+                }
+            }
             return redirect(route("admin.product.list"))->with("success", "Thêm sản phẩm thành công");
         } catch (Exception $e) {
             dd($e->getMessage());
@@ -90,7 +100,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $recipients = Recipient::all();
-        return view("admin.product.edit", compact("categories", 'product','recipients'));
+        return view("admin.product.edit", compact("categories", 'product', 'recipients'));
     }
 
     public function update(Product $product, Request $request)
@@ -104,11 +114,11 @@ class ProductController extends Controller
 
             "thumbnail" => "nullable|image|mimes:jpg,png,jpeg,gif",
         ], [
-            "required" => "Vui lòng nhập thông tin",
-            "string" => "Phải nhập vào là một chuỗi văn bản",
-            "min" => "Phải nhập :attribute  tối thiểu :min",
-            "mimes" => "Vui lòng nhập đúng định dạng ảnh"
-        ]);
+                "required" => "Vui lòng nhập thông tin",
+                "string" => "Phải nhập vào là một chuỗi văn bản",
+                "min" => "Phải nhập :attribute  tối thiểu :min",
+                "mimes" => "Vui lòng nhập đúng định dạng ảnh"
+            ]);
 
         $thumbnail = $product->thumbnail;
         if ($request->hasFile("thumbnail")) {

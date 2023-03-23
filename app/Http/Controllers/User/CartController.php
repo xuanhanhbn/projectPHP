@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailOrder;
 use App\Models\Order\Order;
 use App\Models\Order\SubOrder;
 use App\Models\Product\Product;
 use App\Models\User\UserCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class CartController extends Controller
@@ -158,6 +160,8 @@ class CartController extends Controller
     {
         $order->payment_status = true;
         $order->save();
+        $email = $order->User->email;
+        Mail::to($email)->send(new MailOrder($order));
         return redirect(route("user_order", ["order_id" => $order->id]));
         // chuyen trang thai da thanh toan
     }

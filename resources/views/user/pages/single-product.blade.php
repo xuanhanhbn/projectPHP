@@ -282,12 +282,10 @@
                 <div class="col-lg-8">
                     <div class="left-images">
                         <div class="main-carousel owl-carousel owl-theme">
-                            <img class="owl-lazy" data-src="{{ $item->thumbnail }}" data-src-retina="{{ $item->thumbnail }}"
-                                alt="">
-                            <img class="owl-lazy" data-src="{{ $item->thumbnail }}" data-src-retina="{{ $item->thumbnail }}"
-                                alt="">
-                            <img class="owl-lazy" data-src="{{ $item->thumbnail }}" data-src-retina="{{ $item->thumbnail }}"
-                                alt="">
+                            @foreach ($item->ProductImages as $productImg)
+                                <img class="owl-lazy" data-src="{{ $productImg->path }}"
+                                    data-src-retina="{{ $productImg->path }}" alt="">
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -331,19 +329,23 @@
                                 </div>
                                 <div class="right-content">
                                     <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus" @if ($item->in_stock == 0) disabled @endif>
+                                        <input type="button" value="-" class="minus"
+                                            @if ($item->in_stock == 0) disabled @endif>
                                         <input type="number" id="quantity" step="1" min="1"
-                                            max="{{ $item->in_stock }}" name="quantity" value="{{$item->in_stock == 0? 0: 1}}" title="Qty"
+                                            max="{{ $item->in_stock }}" name="quantity"
+                                            value="{{ $item->in_stock == 0 ? 0 : 1 }}" title="Qty"
                                             class="input-text qty text" size="4" pattern="" inputmode=""
                                             onchange="autoCal()" @if ($item->in_stock == 0) disabled @endif>
-                                        <input type="button" value="+" class="plus" @if ($item->in_stock == 0) disabled @endif>
+                                        <input type="button" value="+" class="plus"
+                                            @if ($item->in_stock == 0) disabled @endif>
                                     </div>
                                 </div>
                             </div>
                             <div class="total">
                                 <h4 id="totalPrice">Total: USD {{ number_format($item->price, 0) }}</h4>
                                 <div class="main-border-button">
-                                    <button type="submit" @if ($item->in_stock == 0) disabled @endif>Add To Cart</button>
+                                    <button type="submit" @if ($item->in_stock == 0) disabled @endif>Add To
+                                        Cart</button>
                                 </div>
                             </div>
                         </form>
