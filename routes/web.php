@@ -21,6 +21,6 @@ Route::group(["middleware"=>["auth"]], function () {
     include_once("user.php");
 });
 
-Route::group(["middleware"=>["auth","admin"], "prefix" => "admin", "as" => "admin."], function () {
+Route::group(["middleware"=>["auth"], "prefix" => "admin", "as" => "admin."], function () {
     include_once("admin.php");
 });
