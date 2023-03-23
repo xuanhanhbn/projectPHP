@@ -90,7 +90,6 @@ class ProductController extends Controller
                 'quantity' => 1,
                 "thumbnail" => $product->thumbnail,
             ];
-
         }
         session()->put('cart', $cart);
         return response()->json([
@@ -129,7 +128,6 @@ class ProductController extends Controller
             ]);
         }
         return redirect()->route("user_product-single", ["id" => $productId]);
-
     }
 
     public function comment(Request $request, $product_id)
@@ -147,8 +145,8 @@ class ProductController extends Controller
         foreach ($productRatings as $rating) {
             $totalRating += $rating->rate;
         }
-        $product->comment = $productRatings->count();
-        $product->rating = round($totalRating / $productRatings->count());
+        $product->comment = $productRatings->count() + 1;
+        $product->rating = round($totalRating / ($productRatings->count() + 1));
         $product->save();
         return redirect(route("user_product-single", ["id" => $product_id]));
     }

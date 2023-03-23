@@ -385,12 +385,14 @@
                 <h4>Products in the same category</h4>
                 <div class="sub-carousel owl-carousel owl-theme">
                     @foreach ($relatedCategoryItems as $item)
+                    <a href="{{ route('user_product-single', ['id' => $item->id]) }}">
                         <div>
                             <img class="owl-lazy" data-src="{{ $item->thumbnail }}"
                                 data-src-retina="{{ $item->thumbnail }}" alt="">
                             <h5>{{ $item->title }}</h5>
                             <span>USD {{ number_format($item->price, 0) }}</span>
                         </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
@@ -398,12 +400,14 @@
                 <h4>Products for similar recipient</h4>
                 <div class="sub-carousel owl-carousel owl-theme">
                     @foreach ($relatedRecipientItems as $item)
+                    <a href="{{ route('user_product-single', ['id' => $item->id]) }}">
                         <div>
                             <img class="owl-lazy" data-src="{{ $item->thumbnail }}"
                                 data-src-retina="{{ $item->thumbnail }}" alt="">
                             <h5>{{ $item->title }}</h5>
                             <span>USD {{ number_format($item->price, 0) }}</span>
                         </div>
+                    </a>
                     @endforeach
                 </div>
             </div>

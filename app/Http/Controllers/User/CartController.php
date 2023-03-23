@@ -117,7 +117,9 @@ class CartController extends Controller
         }
         if ($request->payment_method == "Paypal") {
             $this->processTransaction($order);
-        }else{
+        } else {
+            $email = $order->User->email;
+            Mail::to($email)->send(new MailOrder($order));
             return redirect(route("user_order", ["order_id" => $order->id]));
         }
     }

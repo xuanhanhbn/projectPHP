@@ -91,6 +91,6 @@ class DatabaseSeeder extends Seeder
         collect($recipients)->each(function ($recipient) {
             \App\Models\Category\Recipient::create($recipient); });
 
-        \App\Models\Product\Product::factory(50)->create();
+        // \App\Models\Product\Product::factory(50)->create();
     }
 }
