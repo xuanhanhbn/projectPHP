@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Thumbnail</label>
-                                <input class="form-control" type="file" value="" name="thumbnail" required>
+                                <input class="form-control" type="file" value="" name="thumbnail" >
                                 @error("thumbnail")
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
@@ -59,6 +59,17 @@
                                     @endforeach
                                 </select>
                                 @error("category_id")
+                                <p class="text-danger">{{$message}}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Recipients</label>
+                                <select name="recipients_id" class="form-control select2" required>
+                                    @foreach($recipients as $item)
+                                    <option @if(old("recipients_id")==$item->id) selected @endif value="{{$item->id}}">{{$item->title}}</option>
+                                    @endforeach
+                                </select>
+                                @error("recipients_id")
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
                             </div>

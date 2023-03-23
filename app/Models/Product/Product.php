@@ -3,6 +3,7 @@
 namespace App\Models\Product;
 
 use App\Models\Category\Category;
+use App\Models\Category\Recipient;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,7 +22,8 @@ class Product extends Model
         "rating",
         "comment",
         "thumbnail",
-        "category_id"
+        "category_id",
+        "recipients_id"
     ];
 
     public function ProductImages(){
@@ -34,6 +36,11 @@ class Product extends Model
     public function Category(){
         return $this -> belongsTo(Category::class);
     }
+
+    public function Recipients(){
+        return $this -> belongsTo(Recipient::class);
+    }
+    
     
     public function scopeSearch($query,$search){
         if($search && $search != ""){
@@ -46,6 +53,13 @@ class Product extends Model
     public function scopeCategoryFilter($query,$category_id){
         if($category_id && $category_id != 0){
             return $query->where("category_id",$category_id);
+        }
+        return $query;
+    }
+
+    public function scopeRecipientsFilter($query,$recipients_id){
+        if($recipients_id && $recipients_id != 0){
+            return $query->where("recipients_id",$recipients_id);
         }
         return $query;
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category\Category;
+use App\Models\Category\Recipient;
 use App\Models\Product\Product;
 use Exception;
 use Illuminate\Http\Request;
@@ -17,23 +18,29 @@ class ProductController extends Controller
     {
         $search = $request->get("search");
         $category_id = $request->get("category_id");
+        $recipients_id = $request->get('recipients_id');
 
         $data =  Product::with("Category")
             ->Search($search)
             ->CategoryFilter($category_id)
+            ->RecipientsFilter($recipients_id)
             ->orderBy("id", "desc")
             ->paginate(20);
 
         $categories = Category::all();
+        $recipients = Recipient::all();
         return view("admin.product.list", [
             "data" => $data,
-            "categories" => $categories
+            "categories" => $categories,
+            "recipients" => $recipients
         ]);
     }
     public function create()
     {
         $categories = Category::all();
-        return view("admin.product.create", compact("categories"));
+        $recipients = Recipient::all();
+
+        return view("admin.product.create", ["categories"=>$categories,"recipients"=>$recipients]);
     }
     public function store(Request $request)
     {
@@ -42,6 +49,7 @@ class ProductController extends Controller
             "price" => "required|numeric|min:0",
             "in_stock" => "required|numeric|min:0",
             "category_id" => "required",
+            "recipients_id" => "required",
             "thumbnail" => "nullable|image|mimes:jpg,png,jpeg,gif"
         ], [
             "required" => "Vui lòng nhập thông tin",
@@ -49,9 +57,6 @@ class ProductController extends Controller
             "min" => "Phải nhập :attribute  tối thiểu :min",
             "mimes" => "Vui lòng nhập đúng định dạng ảnh"
         ]);
-
-
-
         try {
             $thumbnail = null;
             if ($request->hasFile("thumbnail")) {
@@ -71,6 +76,8 @@ class ProductController extends Controller
                 "description" => $request->get("description"),
                 "in_stock" => $request->get("in_stock"),
                 "category_id" => $request->get("category_id"),
+                "recipients_id" => $request->get("recipients_id"),
+
             ]);
 
             return redirect()->to("admin/product/list")->with("success", "Thêm sản phẩm thành công");
@@ -81,7 +88,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view("admin.product.edit", compact("categories", 'product'));
+        $recipients = Recipient::all();
+        return view("admin.product.edit", compact("categories", 'product','recipients'));
     }
 
     public function update(Product $product, Request $request)
@@ -91,6 +99,8 @@ class ProductController extends Controller
             "price" => "required|numeric|min:0",
             "in_stock" => "required|numeric|min:0",
             "category_id" => "required",
+            "recipients_id" => "required",
+
             "thumbnail" => "nullable|image|mimes:jpg,png,jpeg,gif",
         ], [
             "required" => "Vui lòng nhập thông tin",
@@ -115,6 +125,8 @@ class ProductController extends Controller
             "description" => $request->get("description"),
             "in_stock" => $request->get("in_stock"),
             "category_id" => $request->get("category_id"),
+            "recipients_id" => $request->get("recipients_id"),
+
         ]);
         return redirect()->to("admin/product/list");
     }

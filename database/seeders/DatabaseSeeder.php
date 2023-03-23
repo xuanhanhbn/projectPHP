@@ -38,59 +38,59 @@ class DatabaseSeeder extends Seeder
             "user_id"=>$user->id,
             "role"=>"USER"
         ]);
-        // $categories = [
-        //     [
-        //         'title' => 'Chocolate Gifts',
-        //         'key' => 'chocolate',
-        //         'image' => '',
-        //         'description' => ''
-        //     ],
-        //     [
-        //         'title' => 'Flowers Gifts',
-        //         'key' => 'flower',
-        //         'image' => '',
-        //         'description' => ''
-        //     ],
-        //     [
-        //         'title' => 'Candle Gift Sets',
-        //         'key' => 'candle',
-        //         'image' => '',
-        //         'description' => ''
-        //     ],
-        // ];
-        // collect($categories)->each(function ($category) {
-        //     \App\Models\Category\Category::create($category); });
+        $categories = [
+            [
+                'title' => 'Chocolate Gifts',
+                'key' => 'chocolate',
+                'image' => '',
+                'description' => ''
+            ],
+            [
+                'title' => 'Flowers Gifts',
+                'key' => 'flower',
+                'image' => '',
+                'description' => ''
+            ],
+            [
+                'title' => 'Candle Gift Sets',
+                'key' => 'candle',
+                'image' => '',
+                'description' => ''
+            ],
+        ];
+        collect($categories)->each(function ($category) {
+            \App\Models\Category\Category::create($category); });
 
-        // $recipients = [
-        //     [
-        //         'title' => 'Gifts For Men',
-        //         'key' => 'men',
-        //         'description' => ''
-        //     ],
-        //     [
-        //         'title' => 'Gifts For Women',
-        //         'key' => 'women',
-        //         'description' => ''
-        //     ],
-        //     [
-        //         'title' => 'Gifts For Kids',
-        //         'key' => 'kid',
-        //         'description' => ''
-        //     ],
-        //     [
-        //         'title' => 'Gifts For Colleagues',
-        //         'key' => 'colleague',
-        //         'description' => ''
-        //     ],
-        //     [
-        //         'title' => 'Gifts For Family',
-        //         'key' => 'family',
-        //         'description' => ''
-        //     ]
-        // ];
-        // collect($recipients)->each(function ($recipient) {
-        //     \App\Models\Category\Recipient::create($recipient); });
+        $recipients = [
+            [
+                'title' => 'Gifts For Men',
+                'key' => 'men',
+                'description' => ''
+            ],
+            [
+                'title' => 'Gifts For Women',
+                'key' => 'women',
+                'description' => ''
+            ],
+            [
+                'title' => 'Gifts For Kids',
+                'key' => 'kid',
+                'description' => ''
+            ],
+            [
+                'title' => 'Gifts For Colleagues',
+                'key' => 'colleague',
+                'description' => ''
+            ],
+            [
+                'title' => 'Gifts For Family',
+                'key' => 'family',
+                'description' => ''
+            ]
+        ];
+        collect($recipients)->each(function ($recipient) {
+            \App\Models\Category\Recipient::create($recipient); });
 
-        // \App\Models\Product\Product::factory(50)->create();
+        \App\Models\Product\Product::factory(50)->create();
     }
 }
