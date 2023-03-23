@@ -49,7 +49,7 @@ class ProductController extends Controller
             "price" => "required|numeric|min:0",
             "in_stock" => "required|numeric|min:0",
             "category_id" => "required",
-            "recipients_id" => "required",
+            "recipient_id" => "required",
             "thumbnail" => "nullable|image|mimes:jpg,png,jpeg,gif"
         ], [
             "required" => "Vui lòng nhập thông tin",
@@ -76,12 +76,13 @@ class ProductController extends Controller
                 "description" => $request->get("description"),
                 "in_stock" => $request->get("in_stock"),
                 "category_id" => $request->get("category_id"),
-                "recipients_id" => $request->get("recipients_id"),
+                "recipient_id" => $request->get("recipient_id"),
 
             ]);
 
-            return redirect()->to("admin/product/list")->with("success", "Thêm sản phẩm thành công");
+            return redirect(route("admin.product.list"))->with("success", "Thêm sản phẩm thành công");
         } catch (Exception $e) {
+            dd($e->getMessage());
             return redirect()->back()->with("error", $e->getMessage());
         }
     }

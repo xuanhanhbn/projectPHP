@@ -10,7 +10,7 @@ Route::post('user-management/create',[App\Http\Controllers\Admin\UserMangementCo
 Route::prefix('product')->group(function (){
     Route::get('list',[App\Http\Controllers\Admin\ProductController::class, "listAll"])->name("product.list");
     Route::get('create',[App\Http\Controllers\Admin\ProductController::class,"create"])->name("product.create");
-    Route::post('create',[App\Http\Controllers\Admin\ProductController::class,"store"])->name("create_product");
+    Route::post('create-product',[App\Http\Controllers\Admin\ProductController::class,"store"])->name("create_product");
     Route::get("edit/{product}",[App\Http\Controllers\Admin\ProductController::class,"edit"]);
     Route::post("edit/{product}",[App\Http\Controllers\Admin\ProductController::class,"update"]);
     Route::post("delete/{product}",[App\Http\Controllers\Admin\ProductController::class,"delete"]);

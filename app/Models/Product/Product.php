@@ -23,7 +23,7 @@ class Product extends Model
         "comment",
         "thumbnail",
         "category_id",
-        "recipients_id"
+        "recipient_id"
     ];
 
     public function ProductImages(){
