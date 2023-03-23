@@ -55,7 +55,7 @@ class ProductController extends Controller
             "required" => "Vui lòng nhập thông tin",
             "string" => "Phải nhập vào là một chuỗi văn bản",
             "min" => "Phải nhập :attribute  tối thiểu :min",
-            "mimes" => "Vui lòng nhập đúng định dạng ảnh"
+            "mimes" => "Vui lòng nhập đúng định dạng ảnhh"
         ]);
         try {
             $thumbnail = null;
