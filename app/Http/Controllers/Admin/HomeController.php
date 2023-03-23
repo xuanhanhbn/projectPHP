@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category\Category;
+use App\Models\Order\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Nette\Utils\DateTime;
 
 class HomeController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -25,7 +28,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $todayOrders = Order::selectRaw("COUNT(*) count, SUM(total) total, DATE_FORMAT(created_at, '%Y-%m-%e') date")
+            ->groupBy('date')
+            ->having('date', "=", (new DateTime)->format('Y-m-d'))
+            ->first();
+        $yearOrders = Order::selectRaw("COUNT(*) count, SUM(total) total, MONTH(created_at) month")
+            ->groupBy("month")
+            ->get();
         $categories = Category::all();
-        return view("admin.pages.dashboard",['categories'=>$categories]);
+        return view("admin.pages.dashboard", [
+            'categories' => $categories,
+            "todayOrders" => $todayOrders,
+            "yearOrders" => $yearOrders
+        ]);
     }
 }
