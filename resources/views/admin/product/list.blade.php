@@ -96,7 +96,7 @@
                                         <td>{{ $item->in_stock }}</td>
                                         <td>{{ $item->sold }}</td>
                                         <td>{{ $item->Category->title }}</td>
-                                        <td>
+                                        <td style="display: flex;">
                                             <a href="{{ url('admin/product/edit', ['product' => $item->id]) }}"
                                                 class="btn btn-outline-primary">Edit</a>
                                             <form action="{{ url('admin/product/delete', ['product' => $item->id]) }}"

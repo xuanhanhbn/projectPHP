@@ -151,8 +151,6 @@
             display: flex;
         }
 
-        .share span {}
-
         .share-icon i {
             margin: 0 5px;
         }

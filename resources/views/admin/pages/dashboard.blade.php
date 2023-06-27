@@ -12,7 +12,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Income</p>
                                 <h5 class="font-weight-bolder">
-                                    $ {{ number_format($todayOrders->total, 0) }}
+                                    ${{number_format($todayOrders->total ?? 0, 0)}}
                                 </h5>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Orders</p>
                                 <h5 class="font-weight-bolder">
-                                    {{ $todayOrders->count }}
+                                    {{ $todayOrders->count ?? 0 }}
                                 </h5>
                             </div>
                         </div>
